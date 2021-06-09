@@ -11,7 +11,7 @@ import {
 const outerPadding = 24;
 const innerPadding = 4;
 
-const SegmentControl = ({options}) => {
+const SegmentControl = ({onChange = () => {}, options}) => {
   const wrapperWidth = 110 * options.length;
   const optionWidth = 100 / options.length;
   const [ sliderState, moveSlider] = React.useState({
@@ -29,7 +29,7 @@ const SegmentControl = ({options}) => {
     moveSlider(prevState => ({
     ...prevState,
     ...newState
-    }));
+    }),onChange(option));
   }
 
   return (

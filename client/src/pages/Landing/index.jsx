@@ -3,7 +3,10 @@ import React from 'react';
 import SegmentControl from '../../components/segmentcontrol';
 import SmallCard from '../../components/card/small';
 import { getGroupedWishlist } from '../../helper/landingPage';
-import { landingConfig } from '../../configs/segmentcontrol';
+import {
+  landingSegmentConfig,
+  defaultSegmentType
+} from '../../configs/segmentcontrol';
 
 import {
   Heading,
@@ -16,7 +19,18 @@ import {
 import wishlists from '../../__mocks__/data.json';
 
 const Landing = ({ username = 'Rahul' }) => {
-  const { categorized, status, others } = getGroupedWishlist(wishlists);
+  const [wishList, updateWishList] = React.useState({});
+  const [selectedSegment, toggleSegment] = React.useState(defaultSegmentType);
+  const selectedGroup = wishList[selectedSegment] || [];
+
+  const updateSegment = (option) => {
+    toggleSegment(option.type);
+  }
+
+  React.useEffect(() => {
+  const groupedWishlist = getGroupedWishlist(wishlists);
+  updateWishList(groupedWishlist)
+  }, []);
 
   return (
     <Wrapper>
@@ -25,12 +39,15 @@ const Landing = ({ username = 'Rahul' }) => {
       </Heading>
       <Container>
         <Row>
-          <SegmentControl options={landingConfig}/>
+          <SegmentControl
+            onChange={updateSegment}
+            options={landingSegmentConfig}
+          />
         </Row>
         <Row>
           <CardContainer>
             {
-              categorized.map((data, idx) => (
+              selectedGroup.map((data, idx) => (
                 <SmallCard {...data} key={idx}/>
               ))
             }

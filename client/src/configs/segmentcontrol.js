@@ -1,14 +1,16 @@
-export const landingConfig = [
+export const landingSegmentConfig = [
   {
-    name: 'grouped',
+    type: 'grouped',
     label: 'Grouped'
   },
   {
-    name: 'status',
+    type: 'status',
     label: 'Status'
   },
   {
-    name: 'others',
+    type: 'others',
     label: 'Others'
   }
 ]
+
+export const defaultSegmentType = landingSegmentConfig[0].type;

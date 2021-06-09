@@ -22,7 +22,7 @@ export function getGroupedWishlist(wishlists) {
   const groupedByStatus = {};
   const groupedByTags = {};
   let re = {
-    categorized: [],
+    grouped: [],
     status: [],
     others: [],
   };
@@ -85,7 +85,7 @@ export function getGroupedWishlist(wishlists) {
   });
 
   for (let key in groupedByCategory) {
-    re.categorized.push(groupedByCategory[key]);
+    re.grouped.push(groupedByCategory[key]);
   }
   for (let key in groupedByStatus) {
     re.status.push(groupedByStatus[key]);
