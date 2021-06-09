@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   width: 48%;
-  height: 142px;
-  border-radius: 8px;
+  height: 164px;
+  border-radius: 12px;
   position: relative;
-  border: 1px solid rgb(0 0 0 / 12%);
+  border: 1px solid rgb(0 0 0 / 8%);
   margin-bottom: 4%;
   &:nth-child(odd) {
     margin-right: 4%;
@@ -20,15 +20,15 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 12px;
+  padding: 14px 16px;
   position: relative;
 `
 export const Header = styled.div`
-  width: 60%;
+  width: 84%;
 `
 export const Text = styled.p`
   font-size: 14px;
-  padding: 10px 0;
+  padding: 10px 0 14px 0;
   font-weight: 400;
   color: #535B62;
   font-weight: 500;
@@ -52,8 +52,8 @@ export const ImageContainer =  styled(Container)`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right bottom;
-  bottom: 4px;
-  right: 4px;
+  bottom: 8px;
+  right: 8px;
   width: 60%;
   height: calc(70% - 2px);
 `
