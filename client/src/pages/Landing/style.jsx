@@ -20,7 +20,6 @@ export const Container = styled.div`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
 `
 
 export const CardContainer = styled.div`

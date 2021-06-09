@@ -1,7 +1,16 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
+
+const sliderAnimation = ({prevPos, nextPos}) => keyframes`
+    0% {
+        transform : translateX(${prevPos}px)
+    }
+    100% {
+        transform : translateX(${nextPos}px)
+    }
+`;
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: ${props => props.dWidth + 'px'};
   border-radius: 12px;
   margin: 32px 0px;
   font-size: 12px;
@@ -15,7 +24,6 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: space-around;
   z-index: 9999;
 `
 
@@ -25,6 +33,8 @@ export const Option = styled.div`
   color: #535B62;
   font-weight: 500;
   z-index: 999;
+  width: ${props => props.dWidth + '%'};
+  text-align: center;
 `
 
 export const ActiveOption = styled(Option)`
@@ -32,9 +42,11 @@ export const ActiveOption = styled(Option)`
   background: #ffff;
   padding: unset;
   padding: 12px 0px;
-  width: 110px;
+  width: 33.33%;
   text-align: center;
   color: #ffff;
+  animation : ${
+  props => sliderAnimation(props.animationState)} .5s linear 0s forwards;
 `
 
 export const Slider = styled(Container)`
