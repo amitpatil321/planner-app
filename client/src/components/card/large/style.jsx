@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: relative;
-  width: 88%;
+  width: 50%;
   height: 100%;
   margin: auto;
 `
@@ -12,9 +12,10 @@ export const Container = styled.div`
   position: relative;
   border: 1px solid rgb(0 0 0 / 8%);
   border-radius: 16px;
-  padding: 12px 16px;
+  padding: 12px 20px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
 `
@@ -23,13 +24,12 @@ export const ImageContainer = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 30%;
+  width: 60%;
   height: 100%;
-  border-radius: 16px;
+  margin-left: 40%;
 `
 
 export const TextContainer = styled.div`
-  margin-left: 28px;
   height: 100%;
   display: flex;
   flex-direction: column;

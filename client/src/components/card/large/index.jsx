@@ -20,7 +20,6 @@ const LargeCard = ({asset, title, list=[]}) => {
   return (
     <Wrapper>
       <Container>
-        <ImageContainer asset={asset}/>
         <TextContainer>
           <Title>
             <TitleTxt>
@@ -34,6 +33,7 @@ const LargeCard = ({asset, title, list=[]}) => {
             <NumberTxt>{list.length}</NumberTxt>
             </SubTitle>
         </TextContainer>
+        <ImageContainer asset={asset}/>
       </Container>
     </Wrapper>
   )

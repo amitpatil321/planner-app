@@ -2,13 +2,12 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   width: 100%;
-  /* padding: 0 24px; */
   position: relative;
 `
 
 export const CarouselWrapper = styled.div`
   width: 100%;
-  height: 140px;
+  height: 220px;
   position: relative;
 `
 export const CarouselContainer = styled(CarouselWrapper)`
