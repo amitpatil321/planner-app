@@ -16,7 +16,7 @@ import {
   TitleTxt
 } from './style'
 
-const LargeCard = ({asset, title, type, list}) => {
+const LargeCard = ({asset, title, list=[]}) => {
   return (
     <Wrapper>
       <Container>
@@ -31,7 +31,7 @@ const LargeCard = ({asset, title, type, list}) => {
             <IconWrapper>
               <ListIcon/>
             </IconWrapper>
-            {/* <NumberTxt>{list.length}</NumberTxt> */}
+            <NumberTxt>{list.length}</NumberTxt>
             </SubTitle>
         </TextContainer>
       </Container>

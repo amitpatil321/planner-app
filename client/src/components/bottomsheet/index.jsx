@@ -5,10 +5,11 @@ import {
   Container,
 } from './style'
 
-const BottomSheet = () => {
+const BottomSheet = (props) => {
   return (
     <Wrapper>
       <Container>
+        {props.children}
       </Container>
     </Wrapper>
   )

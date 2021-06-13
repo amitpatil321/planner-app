@@ -4,15 +4,16 @@ import queryString from 'query-string';
 import { useSelector } from 'react-redux'
 
 import LargeCard from '../../components/card/large';
+import BottomSheet from '../../components/bottomsheet';
+import ListCard from '../../components/listcard';
 
 import {
   Wrapper,
   CarouselWrapper,
   ListWrapper,
-  CarouselContainer
+  CarouselContainer,
+  Header
 } from './style'
-
-import BottomSheet from '../../components/bottomsheet'
 
 const Groups = (props) => {
   const wishlist = useSelector(state => state.wishlist)
@@ -21,19 +22,28 @@ const Groups = (props) => {
 
   const selectedWishlist = (wishlist[groupedBy] || []).find((data) => data.type === type);
 
-  const handleClick = () => {
+  const handleSwipe = () => {
     history.replace(`/group?groupedBy=${groupedBy}&type=text`);
   }
+
+  console.log( selectedWishlist );
 
   return (
     <Wrapper>
       <CarouselWrapper>
-        <CarouselContainer onClick={handleClick}>
+        <CarouselContainer>
           <LargeCard {...selectedWishlist}/>
         </CarouselContainer>
       </CarouselWrapper>
       <ListWrapper>
-        <BottomSheet />
+        <BottomSheet>
+          <Header>
+            Wishlists
+          </Header>
+          {selectedWishlist.list.map((item, index) => (
+            <ListCard {...item} key={index} />
+          ))}
+        </BottomSheet>
       </ListWrapper>
     </Wrapper>
   )
