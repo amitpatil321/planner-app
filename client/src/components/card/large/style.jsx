@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 `
 export const ImageContainer = styled.div`
-  background-image: url('/assets/images/book/book.svg');
+  background-image: ${props => `url(${props.asset})`};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;

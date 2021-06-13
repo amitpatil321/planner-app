@@ -1,7 +1,7 @@
 export const landingSegmentConfig = [
   {
-    type: 'grouped',
-    label: 'Grouped'
+    type: 'genre',
+    label: 'Genre'
   },
   {
     type: 'status',

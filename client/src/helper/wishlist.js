@@ -1,8 +1,8 @@
-import { wishlistCategory, wishlistStatus, wishlistTag } from "../configs/wishlist";
+import { wishlistGenre, wishlistStatus, wishlistTag } from "../configs/wishlist";
 
 function getCombinedWishlistConfig() {
   const combinedArr = [
-    ...wishlistCategory,
+    ...wishlistGenre,
     ...wishlistStatus,
     ...wishlistTag
   ]
@@ -10,7 +10,8 @@ function getCombinedWishlistConfig() {
   combinedArr.forEach((data) => {
     configObj[data.type] = {
       label: data.label,
-      asset: data.asset
+      asset: data.asset,
+      type: data.type
     }
   });
   return configObj;
@@ -18,25 +19,26 @@ function getCombinedWishlistConfig() {
 
 export function getGroupedWishlist(wishlists) {
   const config = getCombinedWishlistConfig();
-  const groupedByCategory = {};
+  const groupedByGenre = {};
   const groupedByStatus = {};
   const groupedByTags = {};
   let re = {
-    grouped: [],
+    genre: [],
     status: [],
     others: [],
   };
 
   wishlists.forEach((data) => {
-    /* Operation For Category */
-    if (!groupedByCategory[data.category]) {
-      groupedByCategory[data.category] = {
-        title: config[data.category].label,
-        asset: config[data.category].asset,
+    /* Operation For Genre */
+    if (!groupedByGenre[data.genre]) {
+      groupedByGenre[data.genre] = {
+        title: config[data.genre].label,
+        asset: config[data.genre].asset,
+        type: config[data.genre].type,
         list: []
       };
     }
-    groupedByCategory[data.category].list.push(data);
+    groupedByGenre[data.genre].list.push(data);
 
     /* Operation for Status*/
     if (data.isCompleted) {
@@ -44,6 +46,7 @@ export function getGroupedWishlist(wishlists) {
         groupedByStatus['completed'] = {
           title: config['completed'].label,
           asset: config['completed'].asset,
+          type: config['completed'].type,
           list: []
         }
       }
@@ -53,6 +56,7 @@ export function getGroupedWishlist(wishlists) {
         groupedByStatus['incomplete'] = {
           title: config['incomplete'].label,
           asset: config['incomplete'].asset,
+          type: config['incomplete'].type,
           list: []
         }
       }
@@ -65,6 +69,7 @@ export function getGroupedWishlist(wishlists) {
         groupedByTags['favorite'] = {
           title: config['favorite'].label,
           asset: config['favorite'].asset,
+          type: config['favorite'].type,
           list: []
         }
       }
@@ -77,6 +82,7 @@ export function getGroupedWishlist(wishlists) {
         groupedByTags['archive'] = {
           title: config['archive'].label,
           asset: config['archive'].asset,
+          type: config['archive'].type,
           list: []
         }
       }
@@ -84,8 +90,8 @@ export function getGroupedWishlist(wishlists) {
     }
   });
 
-  for (let key in groupedByCategory) {
-    re.grouped.push(groupedByCategory[key]);
+  for (let key in groupedByGenre) {
+    re.genre.push(groupedByGenre[key]);
   }
   for (let key in groupedByStatus) {
     re.status.push(groupedByStatus[key]);

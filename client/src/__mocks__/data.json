@@ -1,7 +1,7 @@
 [
   {
     "name": "Travel WishList",
-    "category": "travel",
+    "genre": "travel",
     "isCompleted": false,
     "isFavorite": false,
     "isArchived": true,
@@ -22,7 +22,7 @@
   },
   {
     "name": "Book WishList",
-    "category": "book",
+    "genre": "book",
     "isCompleted": false,
     "isFavorite": false,
     "isArchived": false,
@@ -39,7 +39,7 @@
   },
   {
     "name": "Idea WishList",
-    "category": "idea",
+    "genre": "idea",
     "isCompleted": false,
     "isFavorite": true,
     "isArchived": false,
@@ -56,7 +56,7 @@
   },
   {
     "name": "Idea WishList 2",
-    "category": "idea",
+    "genre": "idea",
     "isCompleted": false,
     "isFavorite": true,
     "isArchived": false,
@@ -73,7 +73,7 @@
   },
   {
     "name": "Food WishList",
-    "category": "food",
+    "genre": "food",
     "isCompleted": true,
     "isFavorite": false,
     "isArchived": false,
@@ -90,7 +90,7 @@
   },
   {
     "name": "Fashion WishList",
-    "category": "fashion",
+    "genre": "fashion",
     "isCompleted": true,
     "isFavorite": false,
     "isArchived": false,
@@ -107,7 +107,7 @@
   },
   {
     "name": "Movie WishList",
-    "category": "movies",
+    "genre": "movies",
     "isCompleted": true,
     "isFavorite": false,
     "isArchived": false,

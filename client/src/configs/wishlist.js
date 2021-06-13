@@ -1,4 +1,4 @@
-export const wishlistCategory = [
+export const wishlistGenre = [
   {
     label: "General",
     type: "general",

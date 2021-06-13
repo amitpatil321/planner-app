@@ -1,4 +1,7 @@
 import React from 'react';
+import { withRouter } from "react-router";
+import queryString from 'query-string';
+import { useSelector } from 'react-redux'
 
 import LargeCard from '../../components/card/large';
 
@@ -11,12 +14,22 @@ import {
 
 import BottomSheet from '../../components/bottomsheet'
 
-const Groups = () => {
+const Groups = (props) => {
+  const wishlist = useSelector(state => state.wishlist)
+  const { history, location: { search } } = props;
+  const { groupedBy , type } = queryString.parse(search);
+
+  const selectedWishlist = (wishlist[groupedBy] || []).find((data) => data.type === type);
+
+  const handleClick = () => {
+    history.replace(`/group?groupedBy=${groupedBy}&type=text`);
+  }
+
   return (
     <Wrapper>
       <CarouselWrapper>
-        <CarouselContainer>
-          <LargeCard />
+        <CarouselContainer onClick={handleClick}>
+          <LargeCard {...selectedWishlist}/>
         </CarouselContainer>
       </CarouselWrapper>
       <ListWrapper>
@@ -26,4 +39,4 @@ const Groups = () => {
   )
 }
 
-export default Groups;
+export default withRouter(Groups);

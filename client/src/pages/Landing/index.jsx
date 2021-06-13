@@ -1,8 +1,10 @@
 import React from 'react';
+import queryString from 'query-string';
+import { withRouter } from "react-router";
+import { useSelector } from 'react-redux'
 
 import SegmentControl from '../../components/segmentcontrol';
 import SmallCard from '../../components/card/small';
-import { getGroupedWishlist } from '../../helper/landingPage';
 import {
   landingSegmentConfig,
   defaultSegmentType
@@ -16,21 +18,27 @@ import {
   CardContainer
 } from './style';
 
-import wishlists from '../../__mocks__/data.json';
+const Landing = ({ username = 'Rahul', history, location }) => {
+  const wishlist = useSelector(state => state.wishlist);
+  const { segment } = queryString.parse(location.search);
 
-const Landing = ({ username = 'Rahul' }) => {
-  const [wishList, updateWishList] = React.useState({});
-  const [selectedSegment, toggleSegment] = React.useState(defaultSegmentType);
-  const selectedGroup = wishList[selectedSegment] || [];
+  const [selectedSegment, toggleSegment] = React.useState(() => {
+    if(segment) {
+      return segment;
+    }
+    return defaultSegmentType
+  });
+  const selectedGroup = wishlist[selectedSegment] || [];
 
   const updateSegment = (option) => {
     toggleSegment(option.type);
+    history.replace(`/landing?segment=${option.type}`)
   }
 
-  React.useEffect(() => {
-  const groupedWishlist = getGroupedWishlist(wishlists);
-  updateWishList(groupedWishlist)
-  }, []);
+  const redirectToGroupRoute = (query) => {
+    const redirectPath = `/group?groupedBy=${selectedSegment}&type=${query}`
+    history.push(redirectPath);
+  }
 
   return (
     <Wrapper>
@@ -42,13 +50,18 @@ const Landing = ({ username = 'Rahul' }) => {
           <SegmentControl
             onChange={updateSegment}
             options={landingSegmentConfig}
+            activeSegment={selectedSegment}
           />
         </Row>
         <Row>
           <CardContainer>
             {
               selectedGroup.map((data, idx) => (
-                <SmallCard {...data} key={idx}/>
+                <SmallCard
+                  {...data}
+                  key={idx}
+                  clickHandle={redirectToGroupRoute}
+                />
               ))
             }
           </CardContainer>
@@ -58,4 +71,4 @@ const Landing = ({ username = 'Rahul' }) => {
   )
 }
 
-export default Landing;
+export default withRouter(Landing);

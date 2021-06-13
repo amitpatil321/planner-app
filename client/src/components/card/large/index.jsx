@@ -16,22 +16,22 @@ import {
   TitleTxt
 } from './style'
 
-const LargeCard = () => {
+const LargeCard = ({asset, title, type, list}) => {
   return (
     <Wrapper>
       <Container>
-        <ImageContainer />
+        <ImageContainer asset={asset}/>
         <TextContainer>
           <Title>
             <TitleTxt>
-              Fashion & Product
+              {title}
             </TitleTxt>
           </Title>
           <SubTitle>
             <IconWrapper>
               <ListIcon/>
             </IconWrapper>
-            <NumberTxt>10</NumberTxt>
+            {/* <NumberTxt>{list.length}</NumberTxt> */}
             </SubTitle>
         </TextContainer>
       </Container>

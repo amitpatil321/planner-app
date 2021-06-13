@@ -32,7 +32,6 @@ export const Option = styled.div`
   padding: 16px 16px;
   color: #535B62;
   font-weight: 500;
-  z-index: 999;
   width: ${props => props.dWidth + '%'};
   text-align: center;
 `
@@ -47,6 +46,7 @@ export const ActiveOption = styled(Option)`
   color: #ffff;
   animation : ${
   props => sliderAnimation(props.animationState)} .5s linear 0s forwards;
+  opacity: ${props => props.animationState.opacity}
 `
 
 export const Slider = styled(Container)`

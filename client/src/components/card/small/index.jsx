@@ -14,9 +14,11 @@ import {
   NumberText
 } from './style'
 
-const SmallCard = ({title, asset, list}) => {
+const SmallCard = ({title, asset, list, type, clickHandle = () => {}}) => {
   return (
-    <Wrapper>
+    <Wrapper
+      onClick={(e) => clickHandle(type)}
+    >
       <ImageContainer asset={asset}/>
       <Container>
         <Header>

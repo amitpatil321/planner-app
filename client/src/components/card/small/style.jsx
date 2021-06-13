@@ -24,7 +24,7 @@ export const Container = styled.div`
   position: relative;
 `
 export const Header = styled.div`
-  width: 84%;
+  width: 86%;
 `
 export const Title = styled.p`
   font-size: 14px;
