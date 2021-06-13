@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   position: relative;
   width: 88%;
-  height: 54%;
+  height: 100%;
   margin: auto;
 `
 export const Container = styled.div`
@@ -26,27 +26,35 @@ export const ImageContainer = styled.div`
   width: 30%;
   height: 100%;
   border-radius: 16px;
-  margin-right: 8%;
 `
 
 export const TextContainer = styled.div`
+  margin-left: 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
-export const Title = styled.p`
+export const Title = styled.div`
+  display: flex;
+  padding-bottom: 4px;
+`
+export const TitleTxt = styled.div`
+  font-size: 16px;
   font-weight: 500;
   color: #535B62;
-  font-size: 16px;
-  line-height: 1.8;
 `
 
-export const SubTitle = styled.p`
-  color: #8a8f92;
+export const SubTitle = styled.div`
+  font-weight: 400;
+  color: #535B62;
+  opacity: .8;
   font-size: 12px;
+  display: flex;
 `
 
-export const NumberTxt = styled.span`
-  width: 12px;
-  height: 12px;
-  padding-left: 8px;
+export const NumberTxt = styled.div`
+  padding-left: 2px;
   font-size: 12px;
 `

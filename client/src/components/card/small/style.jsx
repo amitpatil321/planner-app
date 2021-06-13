@@ -26,24 +26,24 @@ export const Container = styled.div`
 export const Header = styled.div`
   width: 84%;
 `
-export const Text = styled.p`
+export const Title = styled.p`
   font-size: 14px;
-  padding: 10px 0 14px 0;
+  padding: 10px 0;
   font-weight: 400;
   color: #535B62;
   font-weight: 500;
 `
 
-export const SubText = styled.div`
-  font-size: 12px;
-  width: 24px;
-  height: 24px;
-  background-color: #151e28;
-  border-radius: 50%;
+export const SubTitle = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  color: #ffff;
+`
+
+export const NumberText = styled.span`
+  font-size: 12px;
+  color: #5e6c84;
+  margin-bottom: 4px;
 `
 
 export const ImageContainer =  styled(Container)`

@@ -9,6 +9,8 @@ import {
   CarouselContainer
 } from './style'
 
+import BottomSheet from '../../components/bottomsheet'
+
 const Groups = () => {
   return (
     <Wrapper>
@@ -18,7 +20,7 @@ const Groups = () => {
         </CarouselContainer>
       </CarouselWrapper>
       <ListWrapper>
-
+        <BottomSheet />
       </ListWrapper>
     </Wrapper>
   )

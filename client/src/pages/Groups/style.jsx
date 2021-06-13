@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   width: 100%;
-  padding: 0 24px;
+  /* padding: 0 24px; */
   position: relative;
 `
 
 export const CarouselWrapper = styled.div`
   width: 100%;
-  height: 234px;
+  height: 140px;
+  position: relative;
 `
 export const CarouselContainer = styled(CarouselWrapper)`
   width: 100%;
@@ -22,4 +23,6 @@ export const CarouselContainer = styled(CarouselWrapper)`
 
 export const ListWrapper = styled.div`
   width: 100%;
+  margin-top: 64px;
+  height: calc(100vh - 140px - 84px - 64px);
 `

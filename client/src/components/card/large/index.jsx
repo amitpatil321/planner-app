@@ -1,13 +1,19 @@
 import React from 'react'
 
 import {
+  ListIcon,
+  IconWrapper
+} from '../../../styles/icon';
+
+import {
   Wrapper,
   Container,
   ImageContainer,
   TextContainer,
   Title,
   SubTitle,
-  NumberTxt
+  NumberTxt,
+  TitleTxt
 } from './style'
 
 const LargeCard = () => {
@@ -16,8 +22,17 @@ const LargeCard = () => {
       <Container>
         <ImageContainer />
         <TextContainer>
-          <Title>Fashion & Product</Title>
-          <SubTitle>Wishlists <NumberTxt>10</NumberTxt></SubTitle>
+          <Title>
+            <TitleTxt>
+              Fashion & Product
+            </TitleTxt>
+          </Title>
+          <SubTitle>
+            <IconWrapper>
+              <ListIcon/>
+            </IconWrapper>
+            <NumberTxt>10</NumberTxt>
+            </SubTitle>
         </TextContainer>
       </Container>
     </Wrapper>
