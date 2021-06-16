@@ -1,4 +1,7 @@
 import React from 'react'
+
+import { getCategoryInfo } from '../../helper';
+
 import {
   FavoriteIcon,
   FavoriteMarkedIcon,
@@ -10,8 +13,10 @@ import {
   Wrapper,
   Container,
   Header,
-  DetailsSection,
-  SubText
+  CompletionDetails,
+  SubText,
+  CategoryBox,
+  Row
 } from './style'
 
 const ListCard = (props) => {
@@ -35,16 +40,21 @@ const ListCard = (props) => {
             {props.isFavorite ?  <FavoriteMarkedIcon /> : <FavoriteIcon />}
           </IconWrapper>
         </Header>
-        <DetailsSection isCompleted={props.isCompleted}>
-          <IconWrapper
-            iconColor={props.isCompleted ? '#ffff' : '#535B62'}
-          >
-            <CheckListIcon />
-          </IconWrapper>
-          <SubText>
-            {getDetailedListCount(props.list)}
-          </SubText>
-        </DetailsSection>
+        <Row>
+          <CompletionDetails isCompleted={props.isCompleted}>
+            <IconWrapper
+              iconColor={props.isCompleted ? '#ffff' : '#535B62'}
+            >
+              <CheckListIcon />
+            </IconWrapper>
+            <SubText>
+              {getDetailedListCount(props.list)}
+            </SubText>
+          </CompletionDetails>
+          <CategoryBox>
+            {getCategoryInfo(props.genre)}
+          </CategoryBox>
+          </Row>
       </Container>
     </Wrapper>
   )

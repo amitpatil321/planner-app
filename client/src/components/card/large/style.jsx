@@ -16,7 +16,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 
 `
 export const ImageContainer = styled.div`

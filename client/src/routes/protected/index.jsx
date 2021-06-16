@@ -6,7 +6,7 @@ import Groups from '../../pages/Groups';
 import Landing from '../../pages/Landing';
 
 import { updateWishList } from '../../redux/actions/wishlistActions';
-import { getGroupedWishlist } from '../../helper/wishlist';
+import { getGroupedWishlist } from '../../helper';
 
 import wishlists from '../../__mocks__/data.json';
 

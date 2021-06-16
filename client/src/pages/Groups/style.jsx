@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+const innerHeight = window.innerHeight;
+
 export const Wrapper = styled.div`
   width: 100%;
   position: relative;
@@ -22,12 +24,11 @@ export const CarouselContainer = styled(CarouselWrapper)`
 
 export const ListWrapper = styled.div`
   width: 100%;
-  margin-top: 64px;
-  height: calc(100vh - 140px - 84px - 64px);
+  margin-top: 48px;
+  height: calc(${innerHeight}px - 220px - 56px - 48px);
 `
 
-export const Header = styled.h1`
-  font-size: 24px;
-  color: #535B62;
-  margin-bottom: 24px;
+export const EmptyCard = styled.h1`
+  width: 100%;
+  height: 112px;
 `

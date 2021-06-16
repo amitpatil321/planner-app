@@ -3,13 +3,17 @@ import React from 'react'
 import {
   Wrapper,
   Container,
+  Header
 } from './style'
 
-const BottomSheet = (props) => {
+const BottomSheet = ({title, children }) => {
   return (
     <Wrapper>
+      <Header>
+        {title}
+      </Header>
       <Container>
-        {props.children}
+        {children}
       </Container>
     </Wrapper>
   )

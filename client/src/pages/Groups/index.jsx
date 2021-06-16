@@ -12,7 +12,7 @@ import {
   CarouselWrapper,
   ListWrapper,
   CarouselContainer,
-  Header
+  EmptyCard
 } from './style'
 
 const Groups = (props) => {
@@ -26,8 +26,6 @@ const Groups = (props) => {
     history.replace(`/group?groupedBy=${groupedBy}&type=text`);
   }
 
-  console.log( selectedWishlist );
-
   return (
     <Wrapper>
       <CarouselWrapper>
@@ -36,13 +34,11 @@ const Groups = (props) => {
         </CarouselContainer>
       </CarouselWrapper>
       <ListWrapper>
-        <BottomSheet>
-          <Header>
-            Wishlists
-          </Header>
+        <BottomSheet title="Wishlists">
           {selectedWishlist.list.map((item, index) => (
             <ListCard {...item} key={index} />
           ))}
+          <EmptyCard />
         </BottomSheet>
       </ListWrapper>
     </Wrapper>

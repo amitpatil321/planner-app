@@ -101,3 +101,7 @@ export function getGroupedWishlist(wishlists) {
   }
   return re;
 }
+
+export function getCategoryInfo(genreType) {
+  return wishlistGenre.find((genre) => genre.type === genreType).label
+}
