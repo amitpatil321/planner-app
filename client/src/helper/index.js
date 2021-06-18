@@ -32,57 +32,57 @@ export function getGroupedWishlist(wishlists) {
     /* Operation For Genre */
     if (!groupedByGenre[data.genre]) {
       groupedByGenre[data.genre] = {
-        title: config[data.genre].label,
-        asset: config[data.genre].asset,
-        type: config[data.genre].type,
+        ...config[data.genre],
         list: []
       };
     }
-    groupedByGenre[data.genre].list.push(data);
+    if(!data.isArchived) {
+      groupedByGenre[data.genre].list.push(data);
+    }
+    /* End of Operation For Genre */
 
     /* Operation for Status*/
     if (data.isCompleted) {
       if(!groupedByStatus['completed']) {
         groupedByStatus['completed'] = {
-          title: config['completed'].label,
-          asset: config['completed'].asset,
-          type: config['completed'].type,
+          ...config['completed'],
           list: []
         }
       }
-      groupedByStatus['completed'].list.push(data);
+      if(!data.isArchived) {
+        groupedByStatus['completed'].list.push(data);
+      }
     } else {
       if(!groupedByStatus['incomplete']) {
         groupedByStatus['incomplete'] = {
-          title: config['incomplete'].label,
-          asset: config['incomplete'].asset,
-          type: config['incomplete'].type,
+          ...config['incomplete'],
           list: []
         }
       }
-      groupedByStatus['incomplete'].list.push(data);
+      if(!data.isArchived) {
+        groupedByStatus['incomplete'].list.push(data);
+      }
     }
+    /* End of Operation for Status*/
 
     /* Operation for Favorite */
     if (data.isFavorite) {
       if(!groupedByTags['favorite']) {
         groupedByTags['favorite'] = {
-          title: config['favorite'].label,
-          asset: config['favorite'].asset,
-          type: config['favorite'].type,
+          ...config['favorite'],
           list: []
         }
       }
-      groupedByTags['favorite'].list.push(data);
+      if(!data.isArchived) {
+        groupedByTags['favorite'].list.push(data);
+      }
     }
 
     /* Operation for Archived */
     if (data.isArchived) {
       if(!groupedByTags['archive']) {
         groupedByTags['archive'] = {
-          title: config['archive'].label,
-          asset: config['archive'].asset,
-          type: config['archive'].type,
+          ...config['archive'],
           list: []
         }
       }
@@ -91,13 +91,16 @@ export function getGroupedWishlist(wishlists) {
   });
 
   for (let key in groupedByGenre) {
-    re.genre.push(groupedByGenre[key]);
+    if(groupedByGenre[key].list.length)
+      re.genre.push(groupedByGenre[key]);
   }
   for (let key in groupedByStatus) {
-    re.status.push(groupedByStatus[key]);
+    if(groupedByStatus[key].list.length)
+      re.status.push(groupedByStatus[key]);
   }
   for (let key in groupedByTags) {
-    re.others.push(groupedByTags[key]);
+    if(groupedByTags[key].list.length)
+      re.others.push(groupedByTags[key]);
   }
   return re;
 }

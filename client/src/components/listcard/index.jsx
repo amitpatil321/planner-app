@@ -21,15 +21,13 @@ import {
 
 const ListCard = (props) => {
   const getDetailedListCount = (list) => {
-    let complete = 0, incomplete = 0;
+    let complete = 0;
     list.forEach((data)=>{
       if(data.isCompleted) {
         complete++
-      } else {
-        incomplete ++
       }
     })
-    return (<>{complete}/{incomplete}</>)
+    return (<>{complete}/{list.length}</>)
   }
   return (
     <Wrapper>

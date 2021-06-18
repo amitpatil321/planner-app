@@ -64,7 +64,7 @@ const Groups = (props) => {
           />
         </CarouselWrapper>
         <ListWrapper>
-          <BottomSheet title={`${wishlistForSelectedGroup.title}  Wishlists`}>
+          <BottomSheet title={`${wishlistForSelectedGroup.label}  Wishlists`}>
             {
               wishlistForSelectedGroup.list.length ?
               (

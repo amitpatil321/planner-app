@@ -16,14 +16,14 @@ import {
   TitleTxt
 } from './style'
 
-const LargeCard = ({asset, title, list=[]}) => {
+const LargeCard = ({asset, label, list=[]}) => {
   return (
     <Wrapper>
       <Container>
         <TextContainer>
           <Title>
             <TitleTxt>
-              {title}
+              {label}
             </TitleTxt>
           </Title>
           <SubTitle>
