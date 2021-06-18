@@ -78,7 +78,8 @@ const SegmentControl = ({onChange = () => {}, options, activeSegment}) => {
     moveSlider(prevState => ({
     ...prevState,
     ...newState
-    }),onChange(option));
+    }));
+    onChange(option);
   }
 
   return (

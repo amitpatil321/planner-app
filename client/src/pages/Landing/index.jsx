@@ -35,8 +35,8 @@ const Landing = ({ username = 'Rahul', history, location }) => {
     history.replace(`/landing?segment=${option.type}`)
   }
 
-  const redirectToGroupRoute = (query) => {
-    const redirectPath = `/group?groupedBy=${selectedSegment}&type=${query}`
+  const redirectToGroupRoute = (type) => {
+    const redirectPath = `/group?groupedBy=${selectedSegment}&type=${type}`
     history.push(redirectPath);
   }
 

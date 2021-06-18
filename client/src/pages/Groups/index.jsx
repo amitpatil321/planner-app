@@ -3,45 +3,86 @@ import { withRouter } from "react-router";
 import queryString from 'query-string';
 import { useSelector } from 'react-redux'
 
-import LargeCard from '../../components/card/large';
 import BottomSheet from '../../components/bottomsheet';
 import ListCard from '../../components/listcard';
+import SwipeView from '../../components/swipeview';
 
 import {
   Wrapper,
   CarouselWrapper,
   ListWrapper,
-  CarouselContainer,
   EmptyCard
 } from './style'
+
+const swiperConfig = {
+  slidesPerView: 2,
+  centeredSlides: true,
+  spaceBetween: 30,
+}
 
 const Groups = (props) => {
   const wishlist = useSelector(state => state.wishlist)
   const { history, location: { search } } = props;
   const { groupedBy , type } = queryString.parse(search);
+  const [state, setState] = React.useState({groupedBy, type });
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
-  const selectedWishlist = (wishlist[groupedBy] || []).find((data) => data.type === type);
+  const wishlistForSelectedGroup =
+    (wishlist[state.groupedBy] || []).find((data) => data.type === state.type);
 
-  const handleSwipe = () => {
-    history.replace(`/group?groupedBy=${groupedBy}&type=text`);
-  }
+  const updateRouteParams = (type) => {
+    history.replace(`/group?groupedBy=${state.groupedBy}&type=${type}`);
+  };
+
+  const updateType = (newIndex) => {
+    const { type } = wishlist[state.groupedBy][newIndex];
+    setState((prevState) => ({
+      ...prevState,
+      type: type,
+    }));
+    updateRouteParams(type);
+  };
+
+  React.useEffect(() => {
+    let currentIndex =
+      (wishlist[groupedBy] || []).findIndex((data) => data.type === type);
+    currentIndex = currentIndex > -1 ? currentIndex : 0;
+    setActiveIndex(currentIndex);
+  }, []);
 
   return (
-    <Wrapper>
-      <CarouselWrapper>
-        <CarouselContainer>
-          <LargeCard {...selectedWishlist}/>
-        </CarouselContainer>
-      </CarouselWrapper>
-      <ListWrapper>
-        <BottomSheet title="Wishlists">
-          {selectedWishlist.list.map((item, index) => (
-            <ListCard {...item} key={index} />
-          ))}
-          <EmptyCard />
-        </BottomSheet>
-      </ListWrapper>
-    </Wrapper>
+    <>
+    {wishlist[groupedBy].length ?
+      (
+      <Wrapper>
+        <CarouselWrapper>
+          <SwipeView
+            list={wishlist[groupedBy]}
+            swiperConfig={swiperConfig}
+            initialSlide={activeIndex}
+            onSlideChange={updateType}
+          />
+        </CarouselWrapper>
+        <ListWrapper>
+          <BottomSheet title={`${wishlistForSelectedGroup.title}  Wishlists`}>
+            {
+              wishlistForSelectedGroup.list.length ?
+              (
+                <>
+                  {wishlistForSelectedGroup.list.map((item, index) => (
+                    <ListCard {...item} key={index} />
+                  ))}
+                </>
+              ) : (<> Don't have any wishlist added </>)
+            }
+            <EmptyCard />
+          </BottomSheet>
+        </ListWrapper>
+      </Wrapper>
+      ) :
+      (<> You don't have any wishlist under {state.groupedBy} </>)
+    }
+    </>
   )
 }
 

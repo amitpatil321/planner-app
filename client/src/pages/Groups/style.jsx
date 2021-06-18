@@ -11,15 +11,13 @@ export const CarouselWrapper = styled.div`
   width: 100%;
   height: 220px;
   position: relative;
-`
-export const CarouselContainer = styled(CarouselWrapper)`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  align-items: center;
+  & .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  & .swiper-slide {
+    width: 50%;
+  }
 `
 
 export const ListWrapper = styled.div`
