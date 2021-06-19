@@ -1,11 +1,12 @@
 import { wishlistGenre, wishlistStatus, wishlistTag } from "../configs/wishlist";
+import mockData from '../__mocks__/data.json';
 
 function getCombinedWishlistConfig() {
   const combinedArr = [
     ...wishlistGenre,
     ...wishlistStatus,
     ...wishlistTag
-  ]
+  ];
   const configObj = {};
   combinedArr.forEach((data) => {
     configObj[data.type] = {
@@ -106,5 +107,22 @@ export function getGroupedWishlist(wishlists) {
 }
 
 export function getCategoryInfo(genreType) {
-  return wishlistGenre.find((genre) => genre.type === genreType).label
+  if(genreType)
+    return wishlistGenre.find((genre) => genre.type === genreType);
+  else
+    return {};
+}
+
+export function getDetailedListCount(list){
+  let complete = 0;
+  list.forEach((data)=>{
+    if(data.isCompleted) {
+      complete++
+    }
+  });
+  return (<>{complete}/{list.length}</>);
+}
+
+export function getWishlistById(id) {
+  return mockData.find((data,idx)=> Number(data.id) === Number(id));
 }

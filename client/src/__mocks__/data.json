@@ -1,12 +1,13 @@
 [
   {
-    "name": "Travel WishList One",
+    "name": "Travel Wishlist One",
     "genre": "travel",
     "isCompleted": false,
     "isFavorite": false,
     "isArchived": true,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 1,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Travel To Germany",
@@ -23,13 +24,14 @@
     ]
   },
   {
-    "name": "Travel WishList Two",
+    "name": "Travel Wishlist Two",
     "genre": "travel",
     "isCompleted": false,
     "isFavorite": false,
     "isArchived": true,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 2,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Travel To Germany",
@@ -46,13 +48,14 @@
     ]
   },
   {
-    "name": "Travel WishList Three",
+    "name": "Travel Wishlist Three",
     "genre": "travel",
     "isCompleted": false,
     "isFavorite": false,
     "isArchived": true,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 3,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Travel To Germany",
@@ -70,13 +73,14 @@
   },
 
   {
-    "name": "Travel WishList Four",
+    "name": "Travel Wishlist Four",
     "genre": "travel",
     "isCompleted": true,
     "isFavorite": false,
     "isArchived": true,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 4,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Travel To Germany",
@@ -94,13 +98,14 @@
   },
 
   {
-    "name": "Book WishList",
+    "name": "Book Wishlist",
     "genre": "book",
     "isCompleted": false,
     "isFavorite": false,
     "isArchived": false,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 5,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Complete Feluda",
@@ -114,13 +119,14 @@
   },
 
   {
-    "name": "Idea WishList",
+    "name": "Idea Wishlist",
     "genre": "idea",
     "isCompleted": false,
     "isFavorite": true,
     "isArchived": false,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 6,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Create Smart Mirror",
@@ -133,13 +139,14 @@
     ]
   },
   {
-    "name": "Idea WishList 2",
+    "name": "Idea Wishlist 2",
     "genre": "idea",
     "isCompleted": false,
     "isFavorite": true,
     "isArchived": false,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 7,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Create Login Dashboard",
@@ -153,13 +160,14 @@
   },
 
   {
-    "name": "Food WishList",
+    "name": "Food Wishlist",
     "genre": "food",
     "isCompleted": true,
     "isFavorite": false,
     "isArchived": false,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 8,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Learn to cook Chicken",
@@ -172,13 +180,14 @@
     ]
   },
   {
-    "name": "Fashion WishList 2",
+    "name": "Fashion Wishlist 2",
     "genre": "fashion",
     "isCompleted": true,
     "isFavorite": false,
     "isArchived": false,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 9,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Buy clothes",
@@ -191,13 +200,14 @@
     ]
   },
   {
-    "name": "Movie WishList",
+    "name": "Movie Wishlist",
     "genre": "movies",
     "isCompleted": true,
     "isFavorite": false,
     "isArchived": false,
-    "createdDate": "Sat Jun 19 2021",
+    "createdDate": "19 June  2021",
     "id": 10,
+    "authorId": "Rahul",
     "list" : [
       {
         "content": "Watch Pather Panchali",

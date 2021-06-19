@@ -1,14 +1,15 @@
 import styled from 'styled-components'
+import { styleTokens } from '../../styles/variable';
 
 export const Wrapper = styled.div`
   width: 100%;
   padding: 0 24px;
-  background: #ffff;
+  background: ${styleTokens.backgroundColor};
 `
 
 export const Heading = styled.h1`
   font-size: 48px;
-  color: #535B62;
+  color: ${styleTokens.darkTextColor};
 `
 
 export const Container = styled.div`

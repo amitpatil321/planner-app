@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-import wishlistReducer from './wishlistReducer'
+import wishlistReducer from './wishlistReducer';
 
 export default combineReducers({
-  wishlist: wishlistReducer
-})
+  wishlist: wishlistReducer,
+});

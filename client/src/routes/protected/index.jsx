@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Groups from '../../pages/Groups';
 import Landing from '../../pages/Landing';
+import Wishlist from '../../pages/WishList';
 
 import { updateWishList } from '../../redux/actions/wishlistActions';
 import { getGroupedWishlist } from '../../helper';
@@ -25,6 +26,7 @@ const ProtectedRouter = () => {
       <Switch>
         <Route exact path="/landing" component={Landing} />
         <Route exact path="/group" component={Groups} />
+        <Route exact path="/wishlist" component={Wishlist} />
       </Switch>
     );
   } else {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { styleTokens } from '../../../styles/variable';
 
 import {
   ListIcon,
@@ -27,7 +28,9 @@ const LargeCard = ({asset, label, list=[]}) => {
             </TitleTxt>
           </Title>
           <SubTitle>
-            <IconWrapper>
+            <IconWrapper
+              iconColor={styleTokens.lightIconColor}
+            >
               <ListIcon/>
             </IconWrapper>
             <NumberTxt>{list.length}</NumberTxt>

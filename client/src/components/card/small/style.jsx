@@ -1,18 +1,19 @@
 import styled from 'styled-components'
+import { styleTokens } from '../../../styles/variable';
 
 export const Wrapper = styled.div`
   width: 48%;
   height: 164px;
   border-radius: 12px;
   position: relative;
-  border: 1px solid rgb(0 0 0 / 8%);
+  border: 1px solid ${styleTokens.borderColor};
   margin-bottom: 4%;
   &:nth-child(odd) {
     margin-right: 4%;
   }
-  background: #ffff;
+  background: ${styleTokens.backgroundColor};
   position: relative;
-  box-shadow: rgb(0 0 0 / 12%) 0px 3px 10px 0px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 10px;
 `
 export const Container = styled.div`
   width: 100%;
@@ -30,7 +31,7 @@ export const Title = styled.p`
   font-size: 14px;
   padding: 10px 0;
   font-weight: 400;
-  color: #535B62;
+  color: ${styleTokens.darkTextColor};
   font-weight: 500;
 `
 
@@ -42,8 +43,7 @@ export const SubTitle = styled.div`
 
 export const NumberText = styled.span`
   font-size: 12px;
-  color: #5e6c84;
-  margin-bottom: 4px;
+  color: ${styleTokens.lightTextColor};
 `
 
 export const ImageContainer =  styled(Container)`

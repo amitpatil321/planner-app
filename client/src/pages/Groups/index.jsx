@@ -1,17 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import { withRouter } from "react-router";
 import queryString from 'query-string';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 
 import BottomSheet from '../../components/bottomsheet';
-import ListCard from '../../components/listcard';
+import ListCard from '../../components/card/list';
 import SwipeView from '../../components/swipeview';
 
 import {
   Wrapper,
   CarouselWrapper,
   ListWrapper,
-  EmptyCard
+  EmptyListCard
 } from './style'
 
 const swiperConfig = {
@@ -21,7 +22,7 @@ const swiperConfig = {
 }
 
 const Groups = (props) => {
-  const wishlist = useSelector(state => state.wishlist)
+  const wishlist = useSelector(state => state.wishlist);
   const { history, location: { search } } = props;
   const { groupedBy , type } = queryString.parse(search);
   const [state, setState] = React.useState({groupedBy, type });
@@ -41,6 +42,12 @@ const Groups = (props) => {
       type: type,
     }));
     updateRouteParams(type);
+  };
+
+  const redirectToWishlist = (wishlist) => {
+    const { id } = wishlist;
+    const wishlistPath = `/wishlist/?id=${id}`
+    history.push(wishlistPath);
   };
 
   React.useEffect(() => {
@@ -70,12 +77,15 @@ const Groups = (props) => {
               (
                 <>
                   {wishlistForSelectedGroup.list.map((item, index) => (
-                    <ListCard {...item} key={index} />
+                    <ListCard
+                      onClick={redirectToWishlist}
+                      data={item}
+                      key={index} />
                   ))}
                 </>
               ) : (<> Don't have any wishlist added </>)
             }
-            <EmptyCard />
+            <EmptyListCard />
           </BottomSheet>
         </ListWrapper>
       </Wrapper>

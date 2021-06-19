@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 
 import {
@@ -10,29 +11,6 @@ import {
 
 const outerPadding = 24;
 const innerPadding = 4;
-
-function getInitialState(segmentRef,options, activeSegment ) {
-  const elm = segmentRef.current;
-  if(elm) {
-    const activeIdx = options.findIndex((option, idx) => {
-      let index;
-      if(option.type === activeSegment) {
-        index = idx;
-      }
-      return index;
-    });
-    const { left } = elm.children[activeIdx].getBoundingClientRect();
-    const xMove = left - outerPadding - innerPadding;
-    return {
-      prevPos: xMove,
-      nextPos: xMove,
-    };
-  }
-  return {
-    prevPos: 0,
-    nextPos: 0,
-  }
-}
 
 const SegmentControl = ({onChange = () => {}, options, activeSegment}) => {
   const wrapperWidth = 110 * options.length;

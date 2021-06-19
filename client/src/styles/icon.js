@@ -5,11 +5,11 @@ export { default as FavoriteMarkedIcon } from '@material-ui/icons/FavoriteRounde
 export { default as CheckListIcon }  from '@material-ui/icons/PlaylistAddCheckRounded';
 
 export const IconWrapper = styled.span`
-  padding-right: ${ props => props.pr ? props.pr : '8px' };
+  padding-right: ${ props => props.pr ? `${props.pr}px` : '8px' };
   color: ${ props => props.iconColor ? props.iconColor : '#6b778c' };
-  height: ${ props => props.iconSize ? props.iconSize : '16px' };
+  height: ${ props => props.iconSize ? `${props.iconSize}px` : '16px' };
   > svg {
-    font-size: ${ props => props.iconSize ? props.iconSize : '16px' };
+    font-size: ${ props => props.iconSize ? `${props.iconSize}px` : '16px' };
     color: ${ props => props.iconColor ? props.iconColor : '#6b778c' };
   }
 `

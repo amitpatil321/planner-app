@@ -3,6 +3,7 @@ import {
   ListIcon,
   IconWrapper
 } from '../../../styles/icon';
+import { styleTokens } from '../../../styles/variable';
 
 import {
   Wrapper,
@@ -26,7 +27,10 @@ const SmallCard = ({label, asset, list, type, clickHandle = () => {}}) => {
             {label}
           </Title>
           <SubTitle>
-            <IconWrapper>
+            <IconWrapper
+              iconSize={14}
+              iconColor={styleTokens.lightIconColor}
+            >
               <ListIcon />
             </IconWrapper>
             <NumberText>

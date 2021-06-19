@@ -1,10 +1,12 @@
 import styled from 'styled-components'
+import { styleTokens } from '../../styles/variable';
 
 const innerHeight = window.innerHeight;
 
 export const Wrapper = styled.div`
   width: 100%;
   position: relative;
+  background: ${styleTokens.backgroundColor};
 `
 
 export const CarouselWrapper = styled.div`
@@ -26,7 +28,7 @@ export const ListWrapper = styled.div`
   height: calc(${innerHeight}px - 220px - 56px - 48px);
 `
 
-export const EmptyCard = styled.h1`
+export const EmptyListCard = styled.h1`
   width: 100%;
   height: 112px;
 `
