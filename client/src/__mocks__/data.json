@@ -1,0 +1,222 @@
+[
+  {
+    "name": "Travel Wishlist One",
+    "genre": "travel",
+    "isCompleted": false,
+    "isFavorite": false,
+    "isArchived": true,
+    "createdDate": "19 June  2021",
+    "id": 1,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Travel To Germany",
+        "isCompleted": false
+      },
+      {
+        "content": "Travel To France",
+        "isCompleted": false
+      },
+      {
+        "content": "Travel To Italy",
+        "isCompleted": false
+      }
+    ]
+  },
+  {
+    "name": "Travel Wishlist Two",
+    "genre": "travel",
+    "isCompleted": false,
+    "isFavorite": false,
+    "isArchived": true,
+    "createdDate": "19 June  2021",
+    "id": 2,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Travel To Germany",
+        "isCompleted": false
+      },
+      {
+        "content": "Travel To France",
+        "isCompleted": false
+      },
+      {
+        "content": "Travel To Italy",
+        "isCompleted": false
+      }
+    ]
+  },
+  {
+    "name": "Travel Wishlist Three",
+    "genre": "travel",
+    "isCompleted": false,
+    "isFavorite": false,
+    "isArchived": true,
+    "createdDate": "19 June  2021",
+    "id": 3,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Travel To Germany",
+        "isCompleted": false
+      },
+      {
+        "content": "Travel To France",
+        "isCompleted": false
+      },
+      {
+        "content": "Travel To Italy",
+        "isCompleted": false
+      }
+    ]
+  },
+
+  {
+    "name": "Travel Wishlist Four",
+    "genre": "travel",
+    "isCompleted": true,
+    "isFavorite": false,
+    "isArchived": true,
+    "createdDate": "19 June  2021",
+    "id": 4,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Travel To Germany",
+        "isCompleted": true
+      },
+      {
+        "content": "Travel To France",
+        "isCompleted": true
+      },
+      {
+        "content": "Travel To Italy",
+        "isCompleted": true
+      }
+    ]
+  },
+
+  {
+    "name": "Book Wishlist",
+    "genre": "book",
+    "isCompleted": false,
+    "isFavorite": false,
+    "isArchived": false,
+    "createdDate": "19 June  2021",
+    "id": 5,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Complete Feluda",
+        "isCompleted": false
+      },
+      {
+        "content": "Complete Harry Potter",
+        "isCompleted": false
+      }
+    ]
+  },
+
+  {
+    "name": "Idea Wishlist",
+    "genre": "idea",
+    "isCompleted": false,
+    "isFavorite": true,
+    "isArchived": false,
+    "createdDate": "19 June  2021",
+    "id": 6,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Create Smart Mirror",
+        "isCompleted": false
+      },
+      {
+        "content": "Create Portfolio",
+        "isCompleted": true
+      }
+    ]
+  },
+  {
+    "name": "Idea Wishlist 2",
+    "genre": "idea",
+    "isCompleted": false,
+    "isFavorite": true,
+    "isArchived": false,
+    "createdDate": "19 June  2021",
+    "id": 7,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Create Login Dashboard",
+        "isCompleted": false
+      },
+      {
+        "content": "Create Blog App",
+        "isCompleted": true
+      }
+    ]
+  },
+
+  {
+    "name": "Food Wishlist",
+    "genre": "food",
+    "isCompleted": true,
+    "isFavorite": false,
+    "isArchived": false,
+    "createdDate": "19 June  2021",
+    "id": 8,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Learn to cook Chicken",
+        "isCompleted": true
+      },
+      {
+        "content": "Learn to cook Egg",
+        "isCompleted": true
+      }
+    ]
+  },
+  {
+    "name": "Fashion Wishlist 2",
+    "genre": "fashion",
+    "isCompleted": true,
+    "isFavorite": false,
+    "isArchived": false,
+    "createdDate": "19 June  2021",
+    "id": 9,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Buy clothes",
+        "isCompleted": true
+      },
+      {
+        "content": "Buy shoes",
+        "isCompleted": true
+      }
+    ]
+  },
+  {
+    "name": "Movie Wishlist",
+    "genre": "movies",
+    "isCompleted": true,
+    "isFavorite": false,
+    "isArchived": false,
+    "createdDate": "19 June  2021",
+    "id": 10,
+    "authorId": "Rahul",
+    "list" : [
+      {
+        "content": "Watch Pather Panchali",
+        "isCompleted": true
+      },
+      {
+        "content": "Watch apur sansar",
+        "isCompleted": true
+      }
+    ]
+  }
+]
