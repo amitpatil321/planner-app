@@ -42,23 +42,6 @@ export const SecondSlot = styled(FirstSlot)`
   margin-top: 46px;
 `
 
-export const CategoryBox = styled.div`
-  position: relative;
-  font-size: 12px;
-  padding: 0px 12px 0 14px;
-  border-radius: 8px;
-  color: ${styleTokens.tagColor};
-  background: ${styleTokens.tagBackgroundColor};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  font-weight: 500;
-`
-export const Group = styled.div`
-  display: flex;
-`
-
 export const ImageContainer = styled.div`
   height: 28px;
   width: 28px;
@@ -66,8 +49,30 @@ export const ImageContainer = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin-right: 14px;
+  margin-right: 10px;
 `
+
+export const CategoryBox = styled.div`
+  position: relative;
+  font-size: 12px;
+  padding: 4px 12px 4px 8px;
+  border-radius: 8px;
+  color: ${styleTokens.tagColor};
+  background: ${styleTokens.tagBackgroundColor};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 32px;
+  font-weight: 500;
+  & >span {
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+`
+
 export const ThirdSlot = styled(FirstSlot)`
   width: unset;
   margin-top: 12px;
@@ -85,9 +90,9 @@ export const ListCount = styled.div`
   align-items: center;
   ${props => props.isCompleted ?
   `
-  color: ${styleTokens.activeColor};
+  color: ${styleTokens.lightActiveColor};
   padding: 4px 8px;
-  border: 1px solid ${styleTokens.activeColor};
+  background: ${styleTokens.activeBackground};
   ` : `
   padding: 8px 0;
   color: ${styleTokens.lightIconColor};

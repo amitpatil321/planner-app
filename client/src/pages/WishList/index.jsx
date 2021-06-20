@@ -27,7 +27,6 @@ import{
   TitleText,
   ListContainer,
   ImageContainer,
-  Group,
 
   DateTimeText,
   ListCount,
@@ -68,14 +67,15 @@ const Wishlist = (props) => {
                 </FirstSlot>
                 <SecondSlot>
                   <Row>
-                    <Group>
+                    <CategoryBox>
                       <ImageContainer asset={categoryDetails.asset}/>
-                      <CategoryBox>
-                        {categoryDetails.label}
-                      </CategoryBox>
-                    </Group>
+                      <span>{categoryDetails.label}</span>
+                    </CategoryBox>
                     <IconWrapper iconSize={20}>
-                      {wishlist.isFavorite ?  <FavoriteMarkedIcon /> : <FavoriteIcon />}
+                      {wishlist.isFavorite ?
+                        <FavoriteMarkedIcon style={{color: styleTokens.favoriteIconColor}}/> :
+                        <FavoriteIcon />
+                      }
                     </IconWrapper>
                   </Row>
                 </SecondSlot>
@@ -87,7 +87,7 @@ const Wishlist = (props) => {
                     <ListCount isCompleted={wishlist.isCompleted}>
                       <IconWrapper
                         iconColor={wishlist.isCompleted ?
-                          styleTokens.activeColor : styleTokens.lightIconColor
+                          styleTokens.lightActiveColor : styleTokens.lightIconColor
                         }
                         iconSize={16}
                       >

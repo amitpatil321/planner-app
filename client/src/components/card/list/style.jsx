@@ -36,9 +36,9 @@ export const CompletionDetails = styled.div`
   align-items: center;
   ${props => props.isCompleted ?
   `
-  color: ${styleTokens.activeColor};
+  color: ${styleTokens.lightActiveColor};
   padding: 2px 6px;
-  border: 1px solid ${styleTokens.activeColor};
+  background: ${styleTokens.activeBackground};
   ` : `
   padding: 8px 0;
   color: ${styleTokens.lightIconColor};

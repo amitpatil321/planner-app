@@ -33,13 +33,13 @@ const ListCard = ({
           {data.name}
           <IconWrapper>
             {data.isFavorite ?
-            <FavoriteMarkedIcon /> : <FavoriteIcon />}
+            <FavoriteMarkedIcon style={{color: styleTokens.favoriteIconColor}}/> : <FavoriteIcon />}
           </IconWrapper>
         </Header>
         <Row>
           <CompletionDetails isCompleted={data.isCompleted}>
             <IconWrapper
-              iconColor={data.isCompleted ? styleTokens.activeColor : styleTokens.lightIconColor}
+              iconColor={data.isCompleted ? styleTokens.lightActiveColor : styleTokens.lightIconColor}
               iconSize={14}
               pr={4}
             >
