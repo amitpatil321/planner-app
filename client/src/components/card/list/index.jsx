@@ -39,7 +39,9 @@ const ListCard = ({
         <Row>
           <CompletionDetails isCompleted={data.isCompleted}>
             <IconWrapper
-              iconColor={data.isCompleted ? '#ffff' : styleTokens.lightIconColor}
+              iconColor={data.isCompleted ? styleTokens.activeColor : styleTokens.lightIconColor}
+              iconSize={14}
+              pr={4}
             >
               <CheckListIcon />
             </IconWrapper>

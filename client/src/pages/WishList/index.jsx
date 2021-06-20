@@ -12,13 +12,15 @@ import {
   CheckListIcon,
   FavoriteIcon,
   FavoriteMarkedIcon,
+  DateIcon
 } from '../../styles/icon';
 
 import{
   Wrapper,
   Header,
-  FirstFold,
-  SecondFold,
+  FirstSlot,
+  SecondSlot,
+  ThirdSlot,
   AuthorDetails,
   Row,
   ListSection,
@@ -57,14 +59,14 @@ const Wishlist = (props) => {
                 <Header>
                   {wishlist.name}
                 </Header>
-                <FirstFold>
+                <FirstSlot>
                   <Row>
                     <AuthorDetails>
                       - created by <span>{wishlist.authorId}</span>
                     </AuthorDetails>
                   </Row>
-                </FirstFold>
-                <SecondFold>
+                </FirstSlot>
+                <SecondSlot>
                   <Row>
                     <Group>
                       <ImageContainer asset={categoryDetails.asset}/>
@@ -76,7 +78,7 @@ const Wishlist = (props) => {
                       {wishlist.isFavorite ?  <FavoriteMarkedIcon /> : <FavoriteIcon />}
                     </IconWrapper>
                   </Row>
-                </SecondFold>
+                </SecondSlot>
                 <ListSection>
                   <Row>
                     <TitleText>
@@ -85,7 +87,7 @@ const Wishlist = (props) => {
                     <ListCount isCompleted={wishlist.isCompleted}>
                       <IconWrapper
                         iconColor={wishlist.isCompleted ?
-                        styleTokens.whiteTextColor : styleTokens.lightIconColor
+                          styleTokens.activeColor : styleTokens.lightIconColor
                         }
                         iconSize={16}
                       >
@@ -96,6 +98,19 @@ const Wishlist = (props) => {
                       </SubText>
                     </ListCount>
                   </Row>
+                  <ThirdSlot>
+                    <Row>
+                      <IconWrapper
+                        iconColor={ styleTokens.lightIconColor}
+                        iconSize={14}
+                      >
+                        <DateIcon />
+                      </IconWrapper>
+                      <DateTimeText>
+                        {wishlist.createdDate}
+                      </DateTimeText>
+                    </Row>
+                  </ThirdSlot>
                   <ListContainer>
                     {wishlist.list.map((data, idx)=>(
                       <WishCard key={idx}/>

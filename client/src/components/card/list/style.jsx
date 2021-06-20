@@ -36,17 +36,18 @@ export const CompletionDetails = styled.div`
   align-items: center;
   ${props => props.isCompleted ?
   `
-  background-color: ${styleTokens.activeColor};
-  color: ${styleTokens.whiteTextColor};
-  padding: 4px 8px;
+  color: ${styleTokens.activeColor};
+  padding: 2px 6px;
+  border: 1px solid ${styleTokens.activeColor};
   ` : `
   padding: 8px 0;
   color: ${styleTokens.lightIconColor};
   `}
+  height: 20px;
 `
 
 export const SubText = styled.div`
-  font-size: 12px;
+  font-size: 10px;
   color: inherit;
 `
 
@@ -54,9 +55,9 @@ export const CategoryBox = styled.div`
   position: relative;
   font-size: 10px;
   padding: 4px 10px;
-  border-radius: 12px 4px 4px 12px;
-  color: ${styleTokens.darkTextColor};
-  border: 1px solid rgb(0 0 0 / 15%);
+  border-radius: 4px;
+  color: ${styleTokens.tagColor};
+  background: ${styleTokens.tagBackgroundColor};
   margin-left: 24px;
   display: flex;
   justify-content: center;
@@ -69,4 +70,5 @@ export const Row = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
