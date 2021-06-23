@@ -6,6 +6,7 @@ import {
   FavoriteIcon,
   FavoriteMarkedIcon,
   CheckListIcon,
+  DescriptionIcon,
   IconWrapper
 } from '../../../styles/icon'
 import { styleTokens } from '../../../styles/variable';
@@ -14,6 +15,7 @@ import {
   Wrapper,
   Container,
   Header,
+  HeaderText,
   CompletionDetails,
   SubText,
   CategoryBox,
@@ -30,7 +32,7 @@ const ListCard = ({
     >
       <Container>
         <Header>
-          {data.name}
+          <HeaderText>{data.title}</HeaderText>
           <IconWrapper>
             {data.isFavorite ?
             <FavoriteMarkedIcon style={{color: styleTokens.favoriteIconColor}}/> : <FavoriteIcon />}
@@ -41,13 +43,14 @@ const ListCard = ({
             <IconWrapper
               iconColor={data.isCompleted ? styleTokens.lightActiveColor : styleTokens.lightIconColor}
               iconSize={14}
-              pr={4}
+              pr={data.hasBucket ? 4 : 0}
             >
-              <CheckListIcon />
+              {data.hasBucket ? <CheckListIcon /> : <DescriptionIcon />}
             </IconWrapper>
-            <SubText>
+            {data.hasBucket ?
+            (<SubText>
               {getDetailedListCount(data.list)}
-            </SubText>
+            </SubText>) : null}
           </CompletionDetails>
           <CategoryBox>
             {getCategoryInfo(data.genre).label}

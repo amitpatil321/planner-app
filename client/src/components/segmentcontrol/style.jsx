@@ -10,9 +10,9 @@ const sliderAnimation = ({prevPos, nextPos}) => keyframes`
 `;
 
 export const Wrapper = styled.div`
-  width: ${props => props.dWidth + 'px'};
+  width: ${props => props.dWidth + '%'};
   border-radius: 12px;
-  margin: 32px 0px;
+  margin: 24px 0px 32px 0px;
   font-size: 12px;
   position: relative;
   background: #f5f7fb;
@@ -34,6 +34,8 @@ export const Option = styled.div`
   font-weight: 500;
   width: ${props => props.dWidth + '%'};
   text-align: center;
+  cursor: pointer;
+  font-size: 14px;
 `
 
 export const ActiveOption = styled(Option)`
@@ -46,7 +48,8 @@ export const ActiveOption = styled(Option)`
   color: #ffff;
   animation : ${
   props => sliderAnimation(props.animationState)} .5s linear 0s forwards;
-  opacity: ${props => props.animationState.opacity}
+  opacity: ${props => props.animationState.opacity};
+  cursor: pointer;
 `
 
 export const Slider = styled(Container)`

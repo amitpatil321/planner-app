@@ -11,5 +11,6 @@ export const styleTokens = {
   tagBackgroundColor: "#f6f6fa",
   favoriteIconColor: "#ea4c89",
   lightActiveColor: "#6ecea0",
-  activeBackground: "#dbeeec"
+  activeBackground: "#dbeeec",
+  buttonColor: '#4476ff'
 };

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import { styleTokens } from '../../../styles/variable';
+import { ellipsis } from '../../../styles/reusableStyle';
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100px;
+  height: 120px;
   border-radius: 12px;
   margin-bottom: 24px;
   border: 2px solid ${styleTokens.borderColor};
@@ -21,12 +22,18 @@ export const Container = styled.div`
 
 export const Header = styled.div`
   width: 100%;
-  font-size: 14px;
-  font-weight: 500;
-  color: ${styleTokens.darkTextColor};
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 12px;
+`
+
+export const HeaderText = styled.span`
+  width: 80%;
+  font-size: 14px;
+  font-weight: 500;
+  color: ${styleTokens.darkTextColor};
+  ${ellipsis}
 `
 
 export const CompletionDetails = styled.div`
@@ -54,16 +61,16 @@ export const SubText = styled.div`
 export const CategoryBox = styled.div`
   position: relative;
   font-size: 10px;
-  padding: 4px 10px;
+  padding: 4px 14px;
   border-radius: 4px;
   color: ${styleTokens.tagColor};
   background: ${styleTokens.tagBackgroundColor};
-  margin-left: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 28px;
   font-weight: 400;
+  border: 0.5px solid ${styleTokens.tagColor};
 `
 
 export const Row = styled.div`
@@ -71,4 +78,6 @@ export const Row = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position:relative;
+  min-height: 28px;
 `

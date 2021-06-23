@@ -113,7 +113,7 @@ export function getCategoryInfo(genreType) {
     return {};
 }
 
-export function getDetailedListCount(list){
+export function getDetailedListCount(list = []){
   let complete = 0;
   list.forEach((data)=>{
     if(data.isCompleted) {

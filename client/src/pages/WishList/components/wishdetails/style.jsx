@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { styleTokens } from '../../styles/variable';
+import { styleTokens } from '../../../../styles/variable';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -12,13 +12,7 @@ export const Header = styled.h1`
   font-size: 32px;
   color: ${styleTokens.darkTextColor};
   padding-bottom: 12px;
-`
-
-export const FirstSlot = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
+  overflow-wrap: break-word;
 `
 
 export const Row = styled.div`
@@ -27,6 +21,13 @@ export const Row = styled.div`
   align-items: center;
   justify-content: space-between;
   width: inherit;
+`
+
+export const FirstSlot = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
 `
 
 export const AuthorDetails = styled.div`
@@ -43,13 +44,15 @@ export const SecondSlot = styled(FirstSlot)`
 `
 
 export const ImageContainer = styled.div`
-  height: 28px;
-  width: 28px;
+  height: 32px;
+  width: 32px;
   background-image: ${ props => `url(${props.asset})`};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 10px;
+  border-radius:  50%;
+  border: 2px solid ${styleTokens.backgroundColor};
 `
 
 export const CategoryBox = styled.div`
@@ -64,6 +67,7 @@ export const CategoryBox = styled.div`
   align-items: center;
   min-height: 32px;
   font-weight: 500;
+  border: 0.5px solid ${styleTokens.tagColor};
   & >span {
     height: 28px;
     display: flex;
@@ -71,56 +75,4 @@ export const CategoryBox = styled.div`
     align-items: center;
     font-size: 12px;
   }
-`
-
-export const ThirdSlot = styled(FirstSlot)`
-  width: unset;
-  margin-top: 12px;
-`
-
-export const DateTimeText = styled.div`
-  color: ${styleTokens.lightTextColor};
-  font-size: 12px;
-`
-
-export const ListCount = styled.div`
-  border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  ${props => props.isCompleted ?
-  `
-  color: ${styleTokens.lightActiveColor};
-  padding: 4px 8px;
-  background: ${styleTokens.activeBackground};
-  ` : `
-  padding: 8px 0;
-  color: ${styleTokens.lightIconColor};
-  `}
-`
-
-export const SubText = styled.span`
-  font-size: 12px;
-  color: inherit;
-`
-
-export const ListSection = styled.div`
-  border: 2px solid #ecf1fd;
-  border-radius: 8px;
-  margin: 0 0 20px;
-  padding: 15px 15px 10px;
-  width: 100%;
-  margin-top: 48px;
-`
-
-export const TitleText = styled.span`
-  color: #54595e;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 8px 0;
-  display: block;
-`
-
-export const WishWrapper = styled.div`
-  margin-top: 28px;
 `

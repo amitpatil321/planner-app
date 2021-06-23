@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `
 
 export const Heading = styled.h1`
-  font-size: 48px;
+  font-size: 32px;
   color: ${styleTokens.darkTextColor};
 `
 
