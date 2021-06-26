@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { styleTokens } from '../../../../styles/variable';
 
+export const WishWrapper = styled.div`
+  margin-top: 24px;
+`
+
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -9,11 +13,16 @@ export const Row = styled.div`
   width: inherit;
 `
 
-export const ThirdSlot = styled.div`
+export const Slot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 12px;
+`
+export const TaskInfoText = styled.span`
+  color: ${props => props.isCompleted ?
+  styleTokens.lightActiveColor :styleTokens.lightTextColor};
+  font-size: 12px;
 `
 
 export const DateTimeText = styled.div`
@@ -58,5 +67,3 @@ export const TitleText = styled.span`
   padding: 8px 0;
   display: block;
 `
-
-export const WishWrapper = styled.div``

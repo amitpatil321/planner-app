@@ -7,7 +7,8 @@ import {
   FavoriteMarkedIcon,
   CheckListIcon,
   DescriptionIcon,
-  IconWrapper
+  IconWrapper,
+  TagIcon
 } from '../../../styles/icon'
 import { styleTokens } from '../../../styles/variable';
 
@@ -53,6 +54,12 @@ const ListCard = ({
             </SubText>) : null}
           </CompletionDetails>
           <CategoryBox>
+            <IconWrapper
+              iconColor={styleTokens.tagColor}
+              iconSize={14}
+            >
+              <TagIcon />
+            </IconWrapper>
             {getCategoryInfo(data.genre).label}
           </CategoryBox>
           </Row>

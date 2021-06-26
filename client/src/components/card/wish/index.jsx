@@ -7,10 +7,11 @@ import {
   Wrapper,
   Container,
   Divider,
-  DescriptionSection
+  DescriptionSection,
+  TitleText
 } from './style';
 
-const Wishlist = ({content, isCompleted, description}) => {
+const Wishlist = ({title, isCompleted, description}) => {
   return (
     <Wrapper>
       <IconWrapper
@@ -23,15 +24,15 @@ const Wishlist = ({content, isCompleted, description}) => {
         {isCompleted ? <CheckedIcon /> : <UncheckedIcon />}
       </IconWrapper>
       <Container>
-        {content}
+        <TitleText>{title}</TitleText>
         {
-          description && content ? <Divider /> : null
+          description && title ? <Divider /> : null
         }
         {
           description ?
           (
             <DescriptionSection
-              reducePadding={!content}
+              reducePadding={!title}
             >
               {description}
             </DescriptionSection>

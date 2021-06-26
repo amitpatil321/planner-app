@@ -3,12 +3,13 @@ import React from 'react';
 import { styleTokens } from '../../../../styles/variable';
 import { getCategoryInfo } from '../../../../helper';
 
-import ListContainer from '../ListContainer';
+import ListContainer from '../listcontainer';
 
 import {
   IconWrapper,
   FavoriteIcon,
   FavoriteMarkedIcon,
+  TagIcon
 } from '../../../../styles/icon';
 
 import{
@@ -18,7 +19,6 @@ import{
   FirstSlot,
   SecondSlot,
   AuthorDetails,
-  ImageContainer,
   CategoryBox
 } from './style';
 
@@ -40,7 +40,9 @@ const WishDetailsView = ({ wishlist }) => {
       <SecondSlot>
         <Row>
           <CategoryBox>
-            <ImageContainer asset={categoryDetails.asset}/>
+            <IconWrapper iconColor={styleTokens.tagColor}>
+              <TagIcon />
+            </IconWrapper>
             <span>{categoryDetails.label}</span>
           </CategoryBox>
           <IconWrapper iconSize={20}>

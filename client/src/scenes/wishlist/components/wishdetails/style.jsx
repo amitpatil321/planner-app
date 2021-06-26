@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   width: 100%;
   padding: 0 24px;
   background: ${styleTokens.backgroundColor};
+  min-height: 810px;
 `
 
 export const Header = styled.h1`
@@ -43,22 +44,10 @@ export const SecondSlot = styled(FirstSlot)`
   margin-top: 46px;
 `
 
-export const ImageContainer = styled.div`
-  height: 32px;
-  width: 32px;
-  background-image: ${ props => `url(${props.asset})`};
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-right: 10px;
-  border-radius:  50%;
-  border: 2px solid ${styleTokens.backgroundColor};
-`
-
 export const CategoryBox = styled.div`
   position: relative;
   font-size: 12px;
-  padding: 4px 12px 4px 8px;
+  padding: 4px 12px 4px 12px;
   border-radius: 8px;
   color: ${styleTokens.tagColor};
   background: ${styleTokens.tagBackgroundColor};
@@ -67,7 +56,7 @@ export const CategoryBox = styled.div`
   align-items: center;
   min-height: 32px;
   font-weight: 500;
-  border: 0.5px solid ${styleTokens.tagColor};
+  /* border: 0.5px solid ${styleTokens.tagColor}; */
   & >span {
     height: 28px;
     display: flex;

@@ -4,10 +4,11 @@ import { ellipsis } from '../../../styles/reusableStyle';
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 120px;
+  height: 108px;
   border-radius: 12px;
   margin-bottom: 24px;
   border: 2px solid ${styleTokens.borderColor};
+  cursor: pointer;
 `
 
 export const Container = styled.div`
@@ -61,7 +62,7 @@ export const SubText = styled.div`
 export const CategoryBox = styled.div`
   position: relative;
   font-size: 10px;
-  padding: 4px 14px;
+  padding: 4px 8px;
   border-radius: 4px;
   color: ${styleTokens.tagColor};
   background: ${styleTokens.tagBackgroundColor};
@@ -70,7 +71,7 @@ export const CategoryBox = styled.div`
   align-items: center;
   height: 28px;
   font-weight: 400;
-  border: 0.5px solid ${styleTokens.tagColor};
+  /* border: 0.5px solid ${styleTokens.tagColor}; */
 `
 
 export const Row = styled.div`
