@@ -39,9 +39,17 @@ export const ButtonContainer = styled.button`
   justify-content: center;
   align-items: center;
   background: ${props => props.config.btnColor};
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`
+
+export const AnimationWrapper = styled.span`
+  width: ${props => props.size + 'px'};
+  height: ${props => props.size + 'px'};
   animation: ${
   props => rotationAnimation(props.isActive)} .3s ease-in-out 0s forwards;
-  position: absolute;
+
 `
 
 export const MenuContainer = styled.div`

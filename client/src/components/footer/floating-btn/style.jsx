@@ -6,18 +6,46 @@ const floatingAnimation = (isActive) => {
     return keyframes`
       0% {
         transform : translateY(-36%);
+        width : 48px;
+        border-color: ${styleTokens.backgroundColor};
+      }
+      50% {
+        transform : translateY(-120%);
+        width : 48px;
+        border-color: ${styleTokens.backgroundColor};
+      }
+      51% {
+        transform : translateY(-120%);
+        width : 48px;
+        border-color: transparent;
       }
       100% {
         transform : translateY(-120%);
+        width : 300px;
+        border-color: transparent;
       }
     `;
   } else if (isActive === false) {
     return keyframes`
       0% {
         transform : translateY(-120%);
+        width : 300px;
+        border-color: transparent;
+      }
+      50% {
+        transform : translateY(-120%);
+        width : 48px;
+        border-color: transparent;
+      }
+      51% {
+        transform : translateY(-120%);
+        width : 48px;
+        border-color: ${styleTokens.backgroundColor};
       }
       100% {
         transform : translateY(-36%);
+        width : 48px;
+        border-color: ${styleTokens.backgroundColor};
       }
     `;
   } else {
@@ -42,9 +70,10 @@ export const Container = styled.div`
   border-radius: 50%;
   top: 0;
   transform: translateY(-36%);
-  border: 4px solid ${styleTokens.backgroundColor};
+  border: 0px solid ${styleTokens.backgroundColor};
   z-index: 999;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   animation : ${
-  props => floatingAnimation(props.isActive)} .3s ease-in-out 0s forwards;
+  props => floatingAnimation(props.isActive)} .6s ease-in-out 0s forwards;
 `
 

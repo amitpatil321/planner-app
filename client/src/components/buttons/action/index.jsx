@@ -6,7 +6,8 @@ import { styleTokens } from '../../../styles/variable';
 import {
   Wrapper,
   ButtonContainer,
-  MenuContainer
+  MenuContainer,
+  AnimationWrapper
 } from './style';
 
 const defaultConfig = {
@@ -29,13 +30,18 @@ const ActionButton = ({config= defaultConfig, isActive, onClick = () => {}}) => 
         config={config}
         isActive={isActive}
       >
-        <IconWrapper
-          pr={0}
-          iconSize={defaultConfig.iconSize}
-          iconColor={defaultConfig.iconColor}
-          >
-          <AddIcon />
-        </IconWrapper>
+        <AnimationWrapper
+          size={defaultConfig.iconSize}
+          isActive={isActive}
+        >
+          <IconWrapper
+            pr={0}
+            iconSize={defaultConfig.iconSize}
+            iconColor={defaultConfig.iconColor}
+            >
+            <AddIcon />
+          </IconWrapper>
+        </AnimationWrapper>
       </ButtonContainer>
       <MenuContainer
         config={config}
