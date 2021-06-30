@@ -27,4 +27,5 @@ export const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  padding-bottom: 62px; /* For footer */
 `

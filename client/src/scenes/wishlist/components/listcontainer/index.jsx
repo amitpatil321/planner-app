@@ -3,7 +3,7 @@ import React from 'react'
 import { styleTokens } from '../../../../styles/variable';
 import { getDetailedListCount } from '../../../../helper';
 
-import Button from '../../../../components/button';
+import Button from '../../../../components/buttons/generic';
 import WishCard from '../../../../components/card/wish';
 import DescriptionCard from '../../../../components/card/description';
 
@@ -36,6 +36,8 @@ const ListContainer = ({wishlistData}) => {
     description
   } = wishlistData;
 
+  const getTitleText = () => hasBucket? "Your Wishes" : "Your Wish";
+
   const getListCount = () => (
     <>
       {hasBucket ?
@@ -43,7 +45,7 @@ const ListContainer = ({wishlistData}) => {
           <ListCount isCompleted={isCompleted}>
             <IconWrapper
               iconColor={isCompleted ?
-                styleTokens.lightActiveColor :
+                styleTokens.greenActiveColor :
                 styleTokens.lightIconColor
               }
               iconSize={16}
@@ -67,7 +69,7 @@ const ListContainer = ({wishlistData}) => {
           <IconWrapper
           iconColor={
             isCompleted ?
-            styleTokens.lightActiveColor :
+            styleTokens.greenActiveColor :
             styleTokens.lightIconColor
           }
           iconSize={14}
@@ -89,7 +91,7 @@ const ListContainer = ({wishlistData}) => {
     <ListSection>
       <Row>
         <TitleText>
-          Your Wishes
+          {getTitleText()}
         </TitleText>
         {getListCount()}
       </Row>
@@ -113,9 +115,11 @@ const ListContainer = ({wishlistData}) => {
           {list.map((data, idx)=>(
             <WishCard {...data} key={idx}/>
           ))}
+          <Button>
+            Add More Wish
+          </Button>
         </>
         ) : <DescriptionCard description={description} /> }
-        < Button/>
       </WishWrapper>
     </ListSection>
   )

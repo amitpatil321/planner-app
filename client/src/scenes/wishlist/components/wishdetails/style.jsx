@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   width: 100%;
   padding: 0 24px;
   background: ${styleTokens.backgroundColor};
-  min-height: 810px;
+  padding-bottom: 62px; /* For footer */
 `
 
 export const Header = styled.h1`

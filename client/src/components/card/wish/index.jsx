@@ -17,7 +17,7 @@ const Wishlist = ({title, isCompleted, description}) => {
       <IconWrapper
         iconColor={
           isCompleted ?
-          styleTokens.lightActiveColor :
+          styleTokens.greenActiveColor :
           styleTokens.defaultIconColor
         }
       >

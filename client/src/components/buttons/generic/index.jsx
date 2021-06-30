@@ -4,10 +4,10 @@ import {
   Wrapper
 } from './style'
 
-const Button = () => {
+const Button = (props) => {
   return(
     <Wrapper>
-      Add More Wish
+      {props.children}
     </Wrapper>
   )
 }

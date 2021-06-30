@@ -90,9 +90,9 @@ export const ListCount = styled.div`
   align-items: center;
   ${props => props.isCompleted ?
   `
-  color: ${styleTokens.lightActiveColor};
+  color: ${styleTokens.greenActiveColor};
   padding: 4px 8px;
-  background: ${styleTokens.activeBackground};
+  background: ${styleTokens.greenActiveBackground};
   ` : `
   padding: 8px 0;
   color: ${styleTokens.lightIconColor};

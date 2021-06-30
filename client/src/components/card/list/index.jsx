@@ -42,7 +42,7 @@ const ListCard = ({
         <Row>
           <CompletionDetails isCompleted={data.isCompleted}>
             <IconWrapper
-              iconColor={data.isCompleted ? styleTokens.lightActiveColor : styleTokens.lightIconColor}
+              iconColor={data.isCompleted ? styleTokens.greenActiveColor : styleTokens.lightIconColor}
               iconSize={14}
               pr={data.hasBucket ? 4 : 0}
             >

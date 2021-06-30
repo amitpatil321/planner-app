@@ -21,7 +21,7 @@ export const Slot = styled.div`
 `
 export const TaskInfoText = styled.span`
   color: ${props => props.isCompleted ?
-  styleTokens.lightActiveColor :styleTokens.lightTextColor};
+  styleTokens.greenActiveColor :styleTokens.lightTextColor};
   font-size: 12px;
 `
 
@@ -37,9 +37,9 @@ export const ListCount = styled.div`
   align-items: center;
   ${props => props.isCompleted ?
   `
-  color: ${styleTokens.lightActiveColor};
+  color: ${styleTokens.greenActiveColor};
   padding: 4px 8px;
-  background: ${styleTokens.activeBackground};
+  background: ${styleTokens.greenActiveBackground};
   ` : `
   padding: 8px 0;
   color: ${styleTokens.lightIconColor};
