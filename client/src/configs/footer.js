@@ -38,7 +38,7 @@ export const navLinks = {
 
 export const actionBtnConfig = {
   align: 'horizontal',
-  btnSize: 46,
+  btnSize: 45,
   iconSize: 24,
   btnColor: styleTokens.linkTextColor,
   iconColor: styleTokens.whiteTextColor,

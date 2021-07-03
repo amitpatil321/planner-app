@@ -72,7 +72,8 @@ export const Container = styled.div`
   transform: translateY(-36%);
   border: 0px solid ${styleTokens.backgroundColor};
   z-index: 999;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(75, 144, 223, 0.3) 0px 2px 10px 0px,
+  rgba(75, 144, 223, 0.32) 0px 2px 16px 0px;
   animation : ${
   props => floatingAnimation(props.isActive)} .6s ease-in-out 0s forwards;
 `

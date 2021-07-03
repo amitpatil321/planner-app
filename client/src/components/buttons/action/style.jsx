@@ -41,7 +41,8 @@ export const ButtonContainer = styled.button`
   background: ${props => props.config.btnColor};
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
 `
 
 export const AnimationWrapper = styled.span`

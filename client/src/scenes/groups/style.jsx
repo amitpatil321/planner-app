@@ -28,7 +28,7 @@ export const ListWrapper = styled.div`
   height: calc(${innerHeight}px - 200px - 56px - 32px);
 `
 
-export const EmptyListCard = styled.h1`
+export const EmptyListCard = styled.div`
   width: 100%;
   height: 112px;
 `
