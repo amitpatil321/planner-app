@@ -1,28 +1,8 @@
-import styled, { keyframes } from 'styled-components'
-
-const rotationAnimation = (isActive) => {
-  if(isActive === true) {
-    return keyframes`
-      0% {
-        transform : rotate(0deg);
-      }
-      100% {
-        transform : rotate(-45deg);
-      }
-    `;
-  } else if (isActive === false) {
-    return keyframes`
-      0% {
-        transform : rotate(-45deg);
-      }
-      100% {
-        transform : rotate(0deg);
-      }
-    `;
-  } else {
-    return keyframes``;
-  }
-}
+import styled from 'styled-components'
+import {
+  risingAnimation,
+  rotationKeyFrames
+} from '../../../styles/animation';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -49,8 +29,7 @@ export const AnimationWrapper = styled.span`
   width: ${props => props.size + 'px'};
   height: ${props => props.size + 'px'};
   animation: ${
-  props => rotationAnimation(props.isActive)} .3s ease-in-out 0s forwards;
-
+  props => rotationKeyFrames(props.isActive)} .3s ease-in-out 0s forwards;
 `
 
 export const MenuContainer = styled.div`
@@ -58,7 +37,25 @@ export const MenuContainer = styled.div`
   height: 100%;
   border-radius: 30px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: ${props => props.config.backgroundColor};
+  padding: 0 4px;
+  overflow-y: hidden;
+`
+
+export const MenuItem = styled.div`
+  width: ${props => props.config.btnSize + 'px'};
+  height: ${props => props.config.btnSize + 'px'};
+  border-radius: 50%;
+  background: ${props => props.config.btnColor};
+  display: flex;
   justify-content: center;
   align-items: center;
-  background: ${props => props.config.menuBackgroundColor};
+  top: 0;
+  transform: translateY(150%);
+  ${props => risingAnimation(props.isActive)};
+  > span {
+    padding-left: ${props => props.config.pl}px;
+  }
 `

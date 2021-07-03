@@ -40,19 +40,29 @@ export const actionBtnConfig = {
   align: 'horizontal',
   btnSize: 45,
   iconSize: 24,
-  btnColor: styleTokens.linkTextColor,
+  btnColor: styleTokens.footerActionBtnColor,
   iconColor: styleTokens.whiteTextColor,
-  menuBackgroundColor: styleTokens.linkTextColor,
-  menu: [
-    {
-      name: 'Add Wishlist',
-      icon: AddListIcon
+  menu: {
+    backgroundColor: styleTokens.footerActionBtnColor,
+    style: {
+      btnSize: 40,
+      iconSize: 20,
+      btnColor: styleTokens.buttonColor,
+      iconColor: styleTokens.whiteTextColor,
+      pr: 0,
+      pl: 4
     },
-    {
-      name: 'Add Wish',
-      icon: AddSingleIcon
-    }
-  ]
+    items: [
+      {
+        name: 'Add Wishlist',
+        icon: AddListIcon,
+      },
+      {
+        name: 'Add Wish',
+        icon: AddSingleIcon
+      }
+    ]
+  }
 }
 
 export function getActiveLink(path){

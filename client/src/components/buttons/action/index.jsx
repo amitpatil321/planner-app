@@ -7,7 +7,8 @@ import {
   Wrapper,
   ButtonContainer,
   MenuContainer,
-  AnimationWrapper
+  AnimationWrapper,
+  MenuItem
 } from './style';
 
 const defaultConfig = {
@@ -16,10 +17,14 @@ const defaultConfig = {
   iconSize: 24,
   btnColor: styleTokens.linkTextColor,
   iconColor: styleTokens.whiteTextColor,
-  menuBackgroundColor: styleTokens.linkTextColor,
+  menu: {
+  backgroundColor: styleTokens.footerActionBtnColor,
+  items: []
+  }
 }
 
 const ActionButton = ({config= defaultConfig, isActive, onClick = () => {}}) => {
+  const menuConfig = config.menu;
   return(
     <Wrapper
       config={config}
@@ -44,9 +49,28 @@ const ActionButton = ({config= defaultConfig, isActive, onClick = () => {}}) => 
         </AnimationWrapper>
       </ButtonContainer>
       <MenuContainer
-        config={config}
+        config={menuConfig}
       >
-
+        {
+          menuConfig.items.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <MenuItem
+                key={index}
+                config={menuConfig.style}
+                isActive={isActive}
+              >
+                <IconWrapper
+                  pr={0}
+                  iconSize={menuConfig.style.iconSize}
+                  iconColor={menuConfig.style.iconColor}
+                >
+                  <Icon />
+                </IconWrapper>
+              </MenuItem>
+            )
+          })
+        }
       </MenuContainer>
     </Wrapper>
   )
