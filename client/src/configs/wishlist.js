@@ -1,4 +1,4 @@
-export const wishlistGenre = [
+export const wishGenres = [
   {
     label: "General",
     type: "general",
@@ -46,7 +46,7 @@ export const wishlistGenre = [
   }
 ];
 
-export const wishlistStatus = [
+export const wishStatus = [
   {
     label: "Completed",
     type: "completed",
@@ -59,7 +59,7 @@ export const wishlistStatus = [
   }
 ];
 
-export const wishlistTag = [
+export const wishTypes = [
   {
     label: "Favorite",
     type: "favorite",

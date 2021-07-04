@@ -19,7 +19,7 @@ import {
 } from './style';
 
 const Landing = ({ username = 'Rahul', history, location }) => {
-  const wishlist = useSelector(state => state.wishlist);
+  const wishes = useSelector(state => state.wishes.grouped);
   const { segment } = queryString.parse(location.search);
 
   const [selectedSegment, toggleSegment] = React.useState(() => {
@@ -28,7 +28,7 @@ const Landing = ({ username = 'Rahul', history, location }) => {
     }
     return defaultSegmentType
   });
-  const selectedGroup = wishlist[selectedSegment] || [];
+  const selectedGroup = wishes[selectedSegment] || [];
 
   const updateSegment = (option) => {
     toggleSegment(option.type);
@@ -45,7 +45,6 @@ const Landing = ({ username = 'Rahul', history, location }) => {
       <Heading>
         Wishlist of <br /> {username}
       </Heading>
-
       <Container>
         <Row>
           <SegmentControl

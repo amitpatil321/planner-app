@@ -23,17 +23,17 @@ import{
 } from './style';
 
 
-const WishDetailsView = ({ wishlist }) => {
-  const categoryDetails = getCategoryInfo(wishlist.genre);
+const WishDetailsView = ({ wish }) => {
+  const categoryDetails = getCategoryInfo(wish.genre);
   return(
     <Wrapper>
       <Header>
-        {wishlist.title}
+        {wish.title}
       </Header>
       <FirstSlot>
         <Row>
           <AuthorDetails>
-            - created by <span>{wishlist.authorId}</span>
+            - created by <span>{wish.authorId}</span>
           </AuthorDetails>
         </Row>
       </FirstSlot>
@@ -46,7 +46,7 @@ const WishDetailsView = ({ wishlist }) => {
             <span>{categoryDetails.label}</span>
           </CategoryBox>
           <IconWrapper iconSize={20}>
-            {wishlist.isFavorite ?
+            {wish.isFavorite ?
               <FavoriteMarkedIcon
                 style={{color: styleTokens.favoriteIconColor}}
               /> :
@@ -55,7 +55,7 @@ const WishDetailsView = ({ wishlist }) => {
           </IconWrapper>
         </Row>
       </SecondSlot>
-      <ListContainer wishlistData={wishlist} />
+      <ListContainer wishDetails={wish} />
     </Wrapper>
   )
 }

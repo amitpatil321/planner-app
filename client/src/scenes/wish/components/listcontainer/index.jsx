@@ -27,14 +27,14 @@ import{
   TaskInfoText
 } from './style';
 
-const ListContainer = ({wishlistData}) => {
+const ListContainer = ({wishDetails}) => {
   const {
     isCompleted,
     createdDate,
     hasBucket,
     list = [],
     description
-  } = wishlistData;
+  } = wishDetails;
 
   const getTitleText = () => hasBucket? "Your Wishes" : "Your Wish";
 

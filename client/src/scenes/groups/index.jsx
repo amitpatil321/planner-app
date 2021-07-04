@@ -22,21 +22,21 @@ const swiperConfig = {
 }
 
 const Groups = (props) => {
-  const wishlist = useSelector(state => state.wishlist);
+  const wishes = useSelector(state => state.wishes.grouped);
   const { history, location: { search } } = props;
   const { groupedBy , type } = queryString.parse(search);
   const [state, setState] = React.useState({groupedBy, type });
   const [activeIndex, setActiveIndex] = React.useState(0);
 
-  const wishlistForSelectedGroup =
-    (wishlist[state.groupedBy] || []).find((data) => data.type === state.type);
+  const wishesForSelectedGroup =
+    (wishes[state.groupedBy] || []).find((data) => data.type === state.type);
 
   const updateRouteParams = (type) => {
     history.replace(`/group?groupedBy=${state.groupedBy}&type=${type}`);
   };
 
   const updateType = (newIndex) => {
-    const { type } = wishlist[state.groupedBy][newIndex];
+    const { type } = wishes[state.groupedBy][newIndex];
     setState((prevState) => ({
       ...prevState,
       type: type,
@@ -44,53 +44,53 @@ const Groups = (props) => {
     updateRouteParams(type);
   };
 
-  const redirectToWishlist = (wishlist) => {
-    const { id } = wishlist;
-    const wishlistPath = `/wish/?id=${id}`
-    history.push(wishlistPath);
+  const redirectToWishlist = (wishes) => {
+    const { id } = wishes;
+    const path = `/wish/?id=${id}`
+    history.push(path);
   };
 
   React.useEffect(() => {
     let currentIndex =
-      (wishlist[groupedBy] || []).findIndex((data) => data.type === type);
+      (wishes[groupedBy] || []).findIndex((data) => data.type === type);
     currentIndex = currentIndex > -1 ? currentIndex : 0;
     setActiveIndex(currentIndex);
   }, []);
 
   return (
     <>
-    {wishlist[groupedBy].length ?
+    {wishes[groupedBy].length ?
       (
       <Wrapper>
         <CarouselWrapper>
           <SwipeView
-            list={wishlist[groupedBy]}
+            list={wishes[groupedBy]}
             swiperConfig={swiperConfig}
             initialSlide={activeIndex}
             onSlideChange={updateType}
           />
         </CarouselWrapper>
         <ListWrapper>
-          <BottomSheet title={`${wishlistForSelectedGroup.label}  Wishlists`}>
+          <BottomSheet title={`${wishesForSelectedGroup.label}  Wishlists`}>
             {
-              wishlistForSelectedGroup.list.length ?
+              wishesForSelectedGroup.list.length ?
               (
                 <>
-                  {wishlistForSelectedGroup.list.map((item, index) => (
+                  {wishesForSelectedGroup.list.map((item, index) => (
                     <ListCard
                       onClick={redirectToWishlist}
                       data={item}
                       key={index} />
                   ))}
                 </>
-              ) : (<> Don't have any wishlist added </>)
+              ) : (<> Don't have any wishes added </>)
             }
             <EmptyListCard />
           </BottomSheet>
         </ListWrapper>
       </Wrapper>
       ) :
-      (<> You don't have any wishlist under {state.groupedBy} </>)
+      (<> You don't have any wishes under {state.groupedBy} </>)
     }
     </>
   )

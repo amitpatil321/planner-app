@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components'
+import { keyframes, css } from 'styled-components'
 import { styleTokens } from './variable';
 
 /* KEYFRAMES DECLARATIONS */
@@ -37,7 +37,6 @@ const antiClockwise = keyframes`
     transform : rotate(0deg);
   }
 `;
-
 const footerExpansion = keyframes`
   0% {
     transform : translateY(-36%);
@@ -87,7 +86,6 @@ const footerContraction = keyframes`
     border-color: ${styleTokens.backgroundColor};
   }
 `;
-
 
 /* ANIMATION FUNCTIONS DECLARATIONS */
 export const footerRisingAnimation = (isActive) => {

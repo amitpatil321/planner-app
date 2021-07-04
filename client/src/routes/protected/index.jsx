@@ -3,23 +3,29 @@ import { Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 
 import { routeConfig } from '../config'
-import { updateWishList } from '../../redux/actions/wishlistActions';
-import { getGroupedWishlist } from '../../helper';
+import { updateWishes } from '../../redux/actions/wishActions';
+import { getGroupedWishes } from '../../helper';
 import Footer from '../../components/footer';
 
+// mock data
 import wishlists from '../../__mocks__/data.json';
 
 const ProtectedRouter = () => {
-  const wishlist = useSelector(state => state.wishlist)
+  const wishes = useSelector(state => state.wishes)
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     // mocking api call
-    const groupedWishlist = getGroupedWishlist(wishlists);
-    dispatch(updateWishList(groupedWishlist));
+    const groupedWishes = getGroupedWishes(wishlists);
+    dispatch(updateWishes(
+      {
+        grouped: groupedWishes,
+        all: wishlists,
+      }
+    ));
   }, [dispatch]);
 
-  if(Object.keys(wishlist).length) {
+  if(Object.keys(wishes).length) {
     return (
       <>
         <Switch>

@@ -1,1 +1,1 @@
-export const UPDATE_WISHLIST = 'UPDATE_WISHLIST';
+export const UPDATE_WISHES = 'UPDATE_WISHES';

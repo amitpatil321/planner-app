@@ -21,7 +21,8 @@ export const Container = styled.div`
   transform: translateY(-36%);
   border: 0px solid ${styleTokens.backgroundColor};
   z-index: 999;
-  box-shadow: rgba(75, 144, 223, 0.3) 0px 4px 20px 0px,
+  box-shadow:
+  rgba(75, 144, 223, 0.3) 0px 4px 20px 0px,
   rgba(75, 144, 223, 0.32) 0px 2px 16px 0px;
   ${props => footerFloatingAnimation(props.isActive)};
 `
