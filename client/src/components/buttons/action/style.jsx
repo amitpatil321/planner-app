@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {
-  risingAnimation,
-  rotationKeyFrames
+  footerRisingAnimation,
+  footerActionRotation
 } from '../../../styles/animation';
 
 export const Wrapper = styled.div`
@@ -28,8 +28,7 @@ export const ButtonContainer = styled.button`
 export const AnimationWrapper = styled.span`
   width: ${props => props.size + 'px'};
   height: ${props => props.size + 'px'};
-  animation: ${
-  props => rotationKeyFrames(props.isActive)} .3s ease-in-out 0s forwards;
+  ${props => footerActionRotation(props.isActive)};
 `
 
 export const MenuContainer = styled.div`
@@ -54,7 +53,7 @@ export const MenuItem = styled.div`
   align-items: center;
   top: 0;
   transform: translateY(150%);
-  ${props => risingAnimation(props.isActive)};
+  ${props => footerRisingAnimation(props.isActive)};
   > span {
     padding-left: ${props => props.config.pl}px;
   }

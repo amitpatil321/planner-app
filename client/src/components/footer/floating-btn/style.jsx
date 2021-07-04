@@ -1,57 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { styleTokens } from '../../../styles/variable';
-
-const floatingAnimation = (isActive) => {
-  if(isActive === true) {
-    return keyframes`
-      0% {
-        transform : translateY(-36%);
-        width : 48px;
-        border-color: ${styleTokens.backgroundColor};
-      }
-      50% {
-        transform : translateY(-120%);
-        width : 48px;
-        border-color: ${styleTokens.backgroundColor};
-      }
-      51% {
-        transform : translateY(-120%);
-        width : 48px;
-        border-color: transparent;
-      }
-      100% {
-        transform : translateY(-120%);
-        width : 180px;
-        border-color: transparent;
-      }
-    `;
-  } else if (isActive === false) {
-    return keyframes`
-      0% {
-        transform : translateY(-120%);
-        width : 180px;
-        border-color: transparent;
-      }
-      50% {
-        transform : translateY(-120%);
-        width : 48px;
-        border-color: transparent;
-      }
-      51% {
-        transform : translateY(-120%);
-        width : 48px;
-        border-color: ${styleTokens.backgroundColor};
-      }
-      100% {
-        transform : translateY(-36%);
-        width : 48px;
-        border-color: ${styleTokens.backgroundColor};
-      }
-    `;
-  } else {
-    return keyframes``;
-  }
-}
+import { footerFloatingAnimation } from '../../../styles/animation';
 
 export const Wrapper = styled.div`
   width: 12%;
@@ -74,7 +23,6 @@ export const Container = styled.div`
   z-index: 999;
   box-shadow: rgba(75, 144, 223, 0.3) 0px 4px 20px 0px,
   rgba(75, 144, 223, 0.32) 0px 2px 16px 0px;
-  animation : ${
-  props => floatingAnimation(props.isActive)} .6s ease-in-out 0s forwards;
+  ${props => footerFloatingAnimation(props.isActive)};
 `
 

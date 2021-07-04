@@ -47,7 +47,7 @@ export const ActiveOption = styled(Option)`
   text-align: center;
   color: #ffff;
   animation : ${
-  props => sliderAnimation(props.animationState)} .5s linear 0s forwards;
+  props => sliderAnimation(props.animationState)} .5s ease-in 0s forwards;
   opacity: ${props => props.animationState.opacity};
   cursor: pointer;
 `
