@@ -56,10 +56,12 @@ export const actionBtnConfig = {
       {
         name: 'Add Wishlist',
         icon: AddListIcon,
+        path: '/add/wishes'
       },
       {
         name: 'Add Wish',
-        icon: AddSingleIcon
+        icon: AddSingleIcon,
+        path: '/add/wish'
       }
     ]
   }

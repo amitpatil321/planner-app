@@ -1,6 +1,6 @@
 import Groups from '../pages/Groups';
 import Landing from '../pages/Landing';
-import Wishlist from '../pages/WishList';
+import Wish from '../pages/Wish';
 import Profile from '../pages/Profile';
 import Search from '../pages/Search';
 import Settings from '../pages/Setting';
@@ -16,8 +16,8 @@ export const routeConfig = {
       component: Groups,
     },
     wishlist: {
-      path: '/wishlist',
-      component: Wishlist,
+      path: '/wish',
+      component: Wish,
     },
     profile: {
       path: '/account',

@@ -46,7 +46,7 @@ const Groups = (props) => {
 
   const redirectToWishlist = (wishlist) => {
     const { id } = wishlist;
-    const wishlistPath = `/wishlist/?id=${id}`
+    const wishlistPath = `/wish/?id=${id}`
     history.push(wishlistPath);
   };
 

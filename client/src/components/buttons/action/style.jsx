@@ -23,6 +23,7 @@ export const ButtonContainer = styled.button`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  cursor:pointer;
 `
 
 export const AnimationWrapper = styled.span`
@@ -53,6 +54,7 @@ export const MenuItem = styled.div`
   align-items: center;
   top: 0;
   transform: translateY(150%);
+  cursor:pointer;
   ${props => footerRisingAnimation(props.isActive)};
   > span {
     padding-left: ${props => props.config.pl}px;

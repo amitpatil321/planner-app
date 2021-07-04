@@ -1,12 +1,12 @@
 import React from 'react';
 import { withRouter } from "react-router";
 
-import Component from '../../scenes/wishlist';
+import Component from '../../scenes/wish';
 
-const Wishlist = (props) => {
+const Wish = (props) => {
   return (
     <Component {...props} />
   )
 };
 
-export default withRouter(Wishlist);
+export default withRouter(Wish);

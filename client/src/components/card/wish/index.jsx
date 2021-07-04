@@ -11,7 +11,7 @@ import {
   TitleText
 } from './style';
 
-const Wishlist = ({title, isCompleted, description}) => {
+const WishCard = ({title, isCompleted, description}) => {
   return (
     <Wrapper>
       <IconWrapper
@@ -43,4 +43,4 @@ const Wishlist = ({title, isCompleted, description}) => {
   )
 }
 
-export default Wishlist
+export default WishCard

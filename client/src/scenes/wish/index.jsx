@@ -5,9 +5,9 @@ import queryString from 'query-string';
 import { getWishlistById } from '../../helper';
 import { isEmptyObject } from '../../utils';
 
-import WishDetailsView from '../../scenes/wishlist/components/wishdetails';
+import WishDetailsView from './components/wishdetails';
 
-const Wishlist = (props) => {
+const Wish = (props) => {
   const [wishlist, updateWishlist] = React.useState(null);
   const { history, location: { search } } = props;
   const { id } = queryString.parse(search);
@@ -36,4 +36,4 @@ const Wishlist = (props) => {
   )
 };
 
-export default withRouter(Wishlist);
+export default withRouter(Wish);

@@ -23,7 +23,12 @@ const defaultConfig = {
   }
 }
 
-const ActionButton = ({config= defaultConfig, isActive, onClick = () => {}}) => {
+const ActionButton = ({
+  config = defaultConfig,
+  isActive,
+  onClick = () => {},
+  onMenuItemClick = () => {},
+}) => {
   const menuConfig = config.menu;
   return(
     <Wrapper
@@ -59,6 +64,9 @@ const ActionButton = ({config= defaultConfig, isActive, onClick = () => {}}) => 
                 key={index}
                 config={menuConfig.style}
                 isActive={isActive}
+                onClick={
+                  () => onMenuItemClick(item)
+                }
               >
                 <IconWrapper
                   pr={0}
