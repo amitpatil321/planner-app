@@ -53,7 +53,7 @@ export const MenuItem = styled.div`
   justify-content: center;
   align-items: center;
   top: 0;
-  transform: translateY(150%);
+  transform: translateY(100%);
   cursor:pointer;
   ${props => footerRisingAnimation(props.isActive)};
   > span {

@@ -15,8 +15,12 @@ export const routeConfig = {
       path: '/group',
       component: Groups,
     },
-    wishlist: {
+    wish: {
       path: '/wish',
+      component: Wish,
+    },
+    addWishes: {
+      path: '/wish/add',
       component: Wish,
     },
     profile: {

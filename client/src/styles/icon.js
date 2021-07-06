@@ -9,7 +9,7 @@ export { default as DateIcon } from "@material-ui/icons/EventAvailable";
 export { default as CheckedIcon } from '@material-ui/icons/CheckCircleOutline';
 export { default as UncheckedIcon } from '@material-ui/icons/RadioButtonUnchecked';
 export { default as DescriptionIcon } from '@material-ui/icons/DescriptionOutlined';
-export { default as TagIcon } from '@material-ui/icons/LocalOfferRounded';
+export { default as TagIcon } from '@material-ui/icons/CategoryRounded';
 export { default as SettingsIcon } from '@material-ui/icons/Settings';
 export { default as AccountIcon } from '@material-ui/icons/AccountCircleRounded';
 export { default as HomeIcon } from '@material-ui/icons/HomeRounded';

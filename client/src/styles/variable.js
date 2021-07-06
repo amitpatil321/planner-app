@@ -13,5 +13,6 @@ export const styleTokens = {
   greenActiveBackground: "#dbeeec",
   buttonColor: "#4476ff",
   linkTextColor: "#4476ff",
-  footerActionBtnColor: "#5484F7"
+  footerActionBtnColor: "#5484F7",
+  placeholderColor: "#b3b3b1"
 };

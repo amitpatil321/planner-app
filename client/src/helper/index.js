@@ -1,4 +1,4 @@
-import { wishGenres, wishStatus, wishTypes } from "../configs/wishlist";
+import { wishGenres, wishStatus, wishTypes } from "../configs/wish";
 
 function getCombinedWishConfig() {
   const combinedArr = [...wishGenres, ...wishStatus, ...wishTypes];

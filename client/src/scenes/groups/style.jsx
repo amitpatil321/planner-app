@@ -26,6 +26,7 @@ export const ListWrapper = styled.div`
   width: 100%;
   margin-top: 32px;
   height: calc(${innerHeight}px - 200px - 56px - 32px);
+  position: relative;
 `
 
 export const EmptyListCard = styled.div`

@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+
 import ActionBtn from '../../buttons/action';
 import { actionBtnConfig } from '../../../configs/footer';
 import useOutsideClick from '../../../hooks/useOutsideClick';
@@ -8,7 +10,7 @@ import {
   Container
 } from './style';
 
-const FloatingBtn = () => {
+const FloatingBtn = ({history}) => {
   const [isActive, toggleActive] = React.useState(null);
   const {ref, isOutside} = useOutsideClick();
 
@@ -17,7 +19,9 @@ const FloatingBtn = () => {
   }
 
   const onNavigation = (itemDetails) => {
-
+    const { path } = itemDetails;
+    history.push(path);
+    handleClick();
   }
 
   React.useEffect(()=>{
@@ -35,12 +39,12 @@ const FloatingBtn = () => {
       <ActionBtn
         config={actionBtnConfig}
         isActive={isActive}
-        onClick={() => handleClick()}
-        onMenuItemClick={()=>onNavigation()}
+        onClick={handleClick}
+        onMenuItemClick={onNavigation}
       />
       </Container>
     </Wrapper>
   )
 }
 
-export default FloatingBtn;
+export default withRouter(FloatingBtn);
