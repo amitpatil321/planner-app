@@ -4,10 +4,15 @@ import {
   Wrapper
 } from './style'
 
-const Button = (props) => {
+const Button = ({
+  onClick = () => {},
+  children
+}) => {
   return(
-    <Wrapper>
-      {props.children}
+    <Wrapper
+      onClick={onClick}
+    >
+      {children}
     </Wrapper>
   )
 }

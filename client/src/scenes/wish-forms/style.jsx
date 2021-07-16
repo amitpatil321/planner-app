@@ -7,9 +7,9 @@ import{
   SecondSlot,
   AuthorDetails,
   CategoryBox
-} from '../components/wishdetails/style';
+} from '../wish/components/wishdetails/style';
 
-import { styleTokens } from '../../../styles/variable';
+import { styleTokens } from '../../styles/variable';
 
 export const FWrapper = styled(Wrapper)`
 `
@@ -17,6 +17,7 @@ export const FHeader = styled(Header)`
   width: inherit;
   height: inherit;
   z-index:1;
+  -webkit-user-modify: read-write-plaintext-only;
 `
 export const FRow = styled(Row)`
   position: relative;

@@ -1,4 +1,5 @@
 import React from 'react'
+import useOutsideClick from '../../hooks/useOutsideClick';
 
 import {
   Wrapper,
@@ -11,12 +12,22 @@ const BottomSheet = ({
   title,
   children,
   showOverlay=false,
+  onClose = () => {}
 }) => {
+  const {ref, isOutside} = useOutsideClick();
+
+  React.useEffect(() => {
+    if(isOutside){
+      onClose();
+    }
+  }, [isOutside])
+
 
   const getSheet = () => {
     return (
       <Wrapper
         showOverlay
+        ref={ref}
       >
       {title ?
         (

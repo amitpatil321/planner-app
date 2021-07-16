@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from "react-router";
 
 import Component from '../../scenes/wish';
-import FormComponent from '../../scenes/wish/forms';
+import FormComponent from '../../scenes/wish-forms';
 
 const Wish = (props) => {
   const { location } = props;
