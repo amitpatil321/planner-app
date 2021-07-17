@@ -38,6 +38,6 @@ export const Header = styled.h1`
 
 export const Container = styled.div`
   width: 100%;
-  height:  inherit;
+  height:  calc(100% - 60px);
   overflow-y: scroll;
 `

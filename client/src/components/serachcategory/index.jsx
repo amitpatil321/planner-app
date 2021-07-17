@@ -30,7 +30,7 @@ const SearchCategory = ({onSelect}) => {
           type='text'
           value={state}
           onChange={(e)=> setState(e.target.value)}
-          placeholder='Search category'
+          placeholder='Search'
         />
       </SearchBar>
       <Container>

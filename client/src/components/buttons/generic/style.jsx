@@ -9,4 +9,5 @@ export const Wrapper = styled.button`
   background: ${styleTokens.buttonColor};
   font-weight: 500;
   margin-top: 18px;
+  min-width: 80px;
 `

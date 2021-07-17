@@ -46,7 +46,8 @@ export const DescriptionSection = styled.div`
   font-weight: 400;
   text-align: left;
   width: 95%;
-  height: 100px;
+  min-height: 20px;
+  max-height: 100px;
   opacity: 0.8;
   line-height: 1.5;
   overflow: hidden;

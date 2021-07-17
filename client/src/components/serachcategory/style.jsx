@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { styleTokens } from "../../styles/variable";
 
 export const Wrapper = styled.div`
-  margin-top: 20px;
   width: 100%;
 `
 export const SearchBar = styled.div`

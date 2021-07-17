@@ -22,7 +22,7 @@ function reducer(state, action) {
     case 'add-list':
       return {
         ...state,
-        list: state.list.push(action.payload)
+        list: [...state.list, (action.payload)]
       };
     case 'edit-list':
       return {

@@ -24,7 +24,8 @@ import{
 
 const ListContainer = ({
   formData,
-  openMoreWishForm
+  openMoreWishForm = () => {},
+  isEditMode=false
 }) => {
   const {
     createdDate,
@@ -75,10 +76,17 @@ const ListContainer = ({
       </FSlot>
       <FWishWrapper>
         {list.map((data, idx)=>(
-          <WishCard {...data} key={idx}/>
+          <div
+            key={idx}
+            onClick={() => openMoreWishForm(idx)}
+          >
+            <WishCard
+              {...data}
+            />
+          </div>
         ))}
         <Button
-          onClick={openMoreWishForm}
+          onClick={() => openMoreWishForm()}
         >
           Add More Wish
         </Button>

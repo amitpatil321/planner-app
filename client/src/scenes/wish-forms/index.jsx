@@ -7,7 +7,7 @@ import { getCategoryInfo} from '../../helper'
 import BottomSheet from '../../components/bottomsheet';
 import SearchCategory from '../../components/serachcategory';
 import ListContainer from './list';
-import MoreWishForm from '../../components/more-wish-form';
+import DetailWishForm from '../../components/detail-wish';
 
 import {
   IconWrapper,
@@ -33,7 +33,11 @@ const WishForm = (props) => {
   const {formData, dispatch} = useFormReducer(type);
 
   const [showSearch, toggleSearch] = React.useState(false);
-  const [isMoreWishFormOpened, toggleMoreWishForm] = React.useState(false);
+  const [moreWishForm, updateMoreWishForm] = React.useState({
+    currentIdx: -1,
+    isFormOpened: false,
+    isEditMode: false,
+  });
 
   const onCategorySelect = (genre) => {
     dispatch({
@@ -43,21 +47,28 @@ const WishForm = (props) => {
     toggleSearch(false);
   }
 
-  const closeGenreSearch = () => {
-    toggleSearch(false);
-  }
-
-  const openMoreWishForm = () => {
-    toggleMoreWishForm(true)
+  const openMoreWishForm = (idx = -1) => {
+    updateMoreWishForm({
+      currentIdx: idx,
+      isFormOpened: true,
+      isEditMode: idx < 0 ? true : false
+    });
   }
 
   const closeMoreWishForm = () => {
-    toggleMoreWishForm(false)
+    updateMoreWishForm({
+      currentIdx: -1,
+      isFormOpened: false,
+      isEditMode: false
+    });
   }
 
   const saveMoreWish = (data) => {
-    console.log(data)
-    toggleMoreWishForm(false)
+    dispatch({
+      type: 'add-list',
+      payload: data
+    });
+    closeMoreWishForm()
   }
 
   const handleDataChange = (e) => {
@@ -122,6 +133,7 @@ const WishForm = (props) => {
         {
           type === 'list' ?
           <ListContainer
+            isEditMode={true}
             formData={formData}
             openMoreWishForm={openMoreWishForm}
           /> : null
@@ -130,8 +142,9 @@ const WishForm = (props) => {
       {showSearch ?
         (
           <BottomSheet
+            title="Search Genres"
             showOverlay
-            onClose={closeGenreSearch}
+            onClose={() => toggleSearch(false)}
           >
             <SearchCategory
               onSelect={onCategorySelect}
@@ -139,14 +152,18 @@ const WishForm = (props) => {
           </BottomSheet>
         ) : null
       }
-      {isMoreWishFormOpened ?
+      {moreWishForm.isFormOpened ?
         (
           <BottomSheet
+            title="Add Your Wish Details"
             showOverlay
             onClose={closeMoreWishForm}
           >
-            <MoreWishForm
+            <DetailWishForm
+              data={(formData.list||[])[moreWishForm.currentIdx]}
               onSave={saveMoreWish}
+              closeForm={closeMoreWishForm}
+              isEditMode={moreWishForm.isEditMode}
             />
           </BottomSheet>
         ) : null
