@@ -7,7 +7,7 @@ import{
   SecondSlot,
   AuthorDetails,
   CategoryBox
-} from '../wish/components/wishdetails/style';
+} from '../wish/components/wishcontainer/style';
 
 import { styleTokens } from '../../styles/variable';
 

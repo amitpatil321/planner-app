@@ -8,7 +8,7 @@ import {
   DateTimeText,
   ListCount,
   SubText
-} from '../../wish/components/listcontainer/style'
+} from '../../wish/components/wishinfo/style'
 
 export const FWishWrapper = styled(WishWrapper)``;
 export const FRow = styled(Row)``;

@@ -4,6 +4,7 @@ import { styleTokens } from '../../../styles/variable';
 
 import Button from '../../../components/buttons/generic';
 import WishCard from '../../../components/card/wish';
+import DescriptionCard from '../../../components/card/description';
 
 import {
   IconWrapper,
@@ -22,15 +23,21 @@ import{
   FSubText,
 } from './style';
 
-const ListContainer = ({
+const InfoForm = ({
   formData,
-  openMoreWishForm = () => {},
+  updateFormData = () => {},
+  openDetailWishForm = () => {},
+  onDescriptionChange = () => {},
   isEditMode=false
 }) => {
   const {
     createdDate,
     list = [],
+    description,
+    hasBucket,
   } = formData;
+
+  const getTitleText = () => hasBucket? "Add your wishes" : "Add description for your wish";
 
   const getFListCount = () => (
     <>
@@ -57,7 +64,7 @@ const ListContainer = ({
     <FListSection>
       <FRow>
         <FTitleText>
-          Add Your Wishes
+          {getTitleText()}
         </FTitleText>
         {getFListCount()}
       </FRow>
@@ -75,24 +82,34 @@ const ListContainer = ({
         </FRow>
       </FSlot>
       <FWishWrapper>
-        {list.map((data, idx)=>(
-          <div
-            key={idx}
-            onClick={() => openMoreWishForm(idx)}
-          >
-            <WishCard
-              {...data}
+        {
+          hasBucket ? (
+            <>
+              {list.map((data, idx)=>(
+                <div
+                  key={idx}
+                  onClick={() => openDetailWishForm(idx)}
+                >
+                  <WishCard
+                    {...data}
+                  />
+                </div>
+              ))}
+              <Button
+                onClick={() => openDetailWishForm()}
+              >
+                Add More Wish
+              </Button>
+            </>
+          ): <DescriptionCard
+              description={description}
+              isEditMode={isEditMode}
+              onDescriptionChange={onDescriptionChange}
             />
-          </div>
-        ))}
-        <Button
-          onClick={() => openMoreWishForm()}
-        >
-          Add More Wish
-        </Button>
+        }
       </FWishWrapper>
     </FListSection>
   )
 }
 
-export default ListContainer;
+export default InfoForm;

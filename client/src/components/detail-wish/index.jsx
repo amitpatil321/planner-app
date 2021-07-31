@@ -17,7 +17,7 @@ import {
   DummyExtraSpace
 } from './style'
 
-const MoreWishDetails = ({
+const DetailWishDetails = ({
   data={
     title:"",
     description: ""
@@ -40,6 +40,7 @@ const MoreWishDetails = ({
         placeCaretAtEnd(titleRef.current);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
   const handleDataChange = (e) => {
@@ -121,4 +122,4 @@ const MoreWishDetails = ({
   )
 }
 
-export default MoreWishDetails;
+export default DetailWishDetails;

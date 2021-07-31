@@ -3,10 +3,11 @@ import queryString from 'query-string';
 
 import useFormReducer from './reducer/useFormReducer';
 import { getCategoryInfo} from '../../helper'
+import { placeCaretAtEnd } from '../../utils';
 
 import BottomSheet from '../../components/bottomsheet';
 import SearchCategory from '../../components/serachcategory';
-import ListContainer from './list';
+import InfoForm from './info-form';
 import DetailWishForm from '../../components/detail-wish';
 
 import {
@@ -33,11 +34,12 @@ const WishForm = (props) => {
   const {formData, dispatch} = useFormReducer(type);
 
   const [showSearch, toggleSearch] = React.useState(false);
-  const [moreWishForm, updateMoreWishForm] = React.useState({
+  const [detailWishForm, updateDetailWishForm] = React.useState({
     currentIdx: -1,
     isFormOpened: false,
     isEditMode: false,
   });
+  const headerRef = React.useRef();
 
   const onCategorySelect = (genre) => {
     dispatch({
@@ -47,44 +49,66 @@ const WishForm = (props) => {
     toggleSearch(false);
   }
 
-  const openMoreWishForm = (idx = -1) => {
-    updateMoreWishForm({
+  const openDetailWishForm = (idx = -1) => {
+    updateDetailWishForm({
       currentIdx: idx,
       isFormOpened: true,
       isEditMode: idx < 0 ? true : false
     });
   }
 
-  const closeMoreWishForm = () => {
-    updateMoreWishForm({
+  const closeDetailWishForm = () => {
+    updateDetailWishForm({
       currentIdx: -1,
       isFormOpened: false,
       isEditMode: false
     });
   }
 
-  const saveMoreWish = (data) => {
-    dispatch({
-      type: 'add-list',
-      payload: data
-    });
-    closeMoreWishForm()
+  const saveDetailWish = (data) => {
+    const isNewData =
+      detailWishForm.currentIdx < 0 ? true : false;
+    if(isNewData){
+      dispatch({
+        type: 'add-list',
+        payload: data
+      });
+    } else {
+      let { list } = formData;
+      const { currentIdx } = detailWishForm;
+      list[currentIdx] = data;
+      dispatch({
+        type: 'edit-list',
+        payload: list
+      });
+    }
+    closeDetailWishForm()
   }
 
-  const handleDataChange = (e) => {
+  const handleInputChange = (e) => {
     const name = e.target.getAttribute('name');
     const value = e.target.textContent;
-    switch (name) {
-    case 'title':
+    if(name === 'title') {
       dispatch({
         type: 'edit-title',
         payload: value
       })
-      return;
-    default:
-      return;
+    }
+    if(name === 'description') {
+      dispatch({
+        type: 'edit-description',
+        payload: value
+      })
+    }
   }
-  }
+
+  React.useLayoutEffect(() => {
+    if(headerRef.current){
+      headerRef.current.innerText = formData.title;
+      placeCaretAtEnd(headerRef.current);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type]);
 
   return(
     <>
@@ -101,7 +125,8 @@ const WishForm = (props) => {
             contentEditable={true}
             name="title"
             html={formData.title}
-            onInput={handleDataChange}
+            onInput={handleInputChange}
+            ref={headerRef}
           />
         </FRow>
         <FFirstSlot>
@@ -130,14 +155,13 @@ const WishForm = (props) => {
             </FCategoryBox>
           </FRow>
         </FSecondSlot>
-        {
-          type === 'list' ?
-          <ListContainer
-            isEditMode={true}
-            formData={formData}
-            openMoreWishForm={openMoreWishForm}
-          /> : null
-        }
+        <InfoForm
+          isEditMode={true}
+          formData={formData}
+          openDetailWishForm={openDetailWishForm}
+          updateFormData={dispatch}
+          onDescriptionChange={handleInputChange}
+        />
       </FWrapper>
       {showSearch ?
         (
@@ -152,18 +176,18 @@ const WishForm = (props) => {
           </BottomSheet>
         ) : null
       }
-      {moreWishForm.isFormOpened ?
+      {detailWishForm.isFormOpened ?
         (
           <BottomSheet
             title="Add Your Wish Details"
             showOverlay
-            onClose={closeMoreWishForm}
+            onClose={closeDetailWishForm}
           >
             <DetailWishForm
-              data={(formData.list||[])[moreWishForm.currentIdx]}
-              onSave={saveMoreWish}
-              closeForm={closeMoreWishForm}
-              isEditMode={moreWishForm.isEditMode}
+              data={(formData.list||[])[detailWishForm.currentIdx]}
+              onSave={saveDetailWish}
+              closeForm={closeDetailWishForm}
+              isEditMode={detailWishForm.isEditMode}
             />
           </BottomSheet>
         ) : null

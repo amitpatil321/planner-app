@@ -20,6 +20,7 @@ const BottomSheet = ({
     if(isOutside){
       onClose();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOutside])
 
 

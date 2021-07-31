@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {
-  footerRisingAnimation,
+  footerItemAnimation,
   footerActionRotation
 } from '../../../styles/animation';
 
@@ -53,9 +53,9 @@ export const MenuItem = styled.div`
   justify-content: center;
   align-items: center;
   top: 0;
-  transform: translateY(150%);
+  transform: scale(0);
   cursor:pointer;
-  ${props => footerRisingAnimation(props.isActive)};
+  ${props => footerItemAnimation(props.isActive)};
   > span {
     padding-left: ${props => props.config.pl}px;
   }

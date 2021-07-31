@@ -3,7 +3,7 @@ import React from 'react';
 import { styleTokens } from '../../../../styles/variable';
 import { getCategoryInfo } from '../../../../helper';
 
-import ListContainer from '../listcontainer';
+import WishInfo from '../wishinfo';
 
 import {
   IconWrapper,
@@ -23,7 +23,7 @@ import{
 } from './style';
 
 
-const WishDetailsView = ({ wish }) => {
+const WishContainer = ({ wish }) => {
   const categoryDetails = getCategoryInfo(wish.genre);
   return(
     <Wrapper>
@@ -55,9 +55,9 @@ const WishDetailsView = ({ wish }) => {
           </IconWrapper>
         </Row>
       </SecondSlot>
-      <ListContainer wishDetails={wish} />
+      <WishInfo wishDetails={wish} />
     </Wrapper>
   )
 }
 
-export default WishDetailsView;
+export default WishContainer;

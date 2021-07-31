@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import { isEmptyObject } from '../../utils';
 
-import WishDetailsView from './components/wishdetails';
+import WishDetailsView from './components/wishcontainer';
 
 const Wish = (props) => {
   const wishes = useSelector(state => state.wishes.all);

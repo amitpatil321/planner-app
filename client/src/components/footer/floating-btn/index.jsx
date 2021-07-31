@@ -28,6 +28,7 @@ const FloatingBtn = ({history}) => {
     if(isOutside && isActive){
       toggleActive(false);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isOutside]);
 
   return (

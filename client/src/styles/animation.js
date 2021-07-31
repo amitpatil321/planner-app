@@ -2,20 +2,20 @@ import { keyframes, css } from 'styled-components'
 import { styleTokens } from './variable';
 
 /* KEYFRAMES DECLARATIONS */
-const riseUp = keyframes`
+const scaleUp = keyframes`
   0% {
-    transform: translateY(150%);
+    transform: scale(0);
   }
   100% {
-    transform: translateY(0%);
+    transform: scale(1);
   }
 `;
-const riseDown = keyframes`
+const scaleDown = keyframes`
   0% {
-    transform: translateY(0%);
+    transform: scale(1);
   }
   100% {
-    transform: translateY(150%);
+    transform: scale(0);
   }
 `;
 const clockwise = keyframes`
@@ -88,14 +88,14 @@ const footerContraction = keyframes`
 `;
 
 /* ANIMATION FUNCTIONS DECLARATIONS */
-export const footerRisingAnimation = (isActive) => {
+export const footerItemAnimation = (isActive) => {
   if(isActive === true) {
     return css`
-    animation: ${riseUp} 0.3s ease-in-out 0.5s forwards
+    animation: ${scaleUp} 0.3s ease-in-out 0.5s forwards
   `;
   } else if (isActive === false) {
     return css`
-    animation: ${riseDown} 0.3s ease-in-out 0s forwards
+    animation: ${scaleDown} 0.3s ease-in-out 0s forwards
   `;
   } else {
     return ``;
