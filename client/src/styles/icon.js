@@ -18,6 +18,7 @@ export { default as AddIcon } from '@material-ui/icons/AddRounded';
 export { default as AddListIcon } from '@material-ui/icons/PlaylistAdd';
 export { default as AddSingleIcon } from '@material-ui/icons/PostAdd';
 export { default as EditIcon } from '@material-ui/icons/EditRounded';
+export {default as SaveIcon } from '@material-ui/icons/SaveRounded';
 
 export const IconWrapper = styled.span`
   padding-right: ${(props) => (props.pr !== undefined ? `${props.pr}px` : "8px")};

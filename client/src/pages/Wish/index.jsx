@@ -6,7 +6,10 @@ import FormComponent from '../../scenes/wish-forms';
 
 const Wish = (props) => {
   const { location } = props;
-  const isFormNeeded = location.pathname.includes('/add');
+  const isFormNeeded =
+  location.pathname.includes('/add') ||
+  location.pathname.includes('/edit');
+
   return (
     <>
       {isFormNeeded ?

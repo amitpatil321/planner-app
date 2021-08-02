@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { styleTokens } from '../../../styles/variable';
 import { footerFloatingAnimation } from '../../../styles/animation';
+import { actionBtnConfig } from '../../../configs/footer';
 
 export const Wrapper = styled.div`
   width: 12%;
@@ -24,6 +25,28 @@ export const Container = styled.div`
   box-shadow:
   rgba(75, 144, 223, 0.3) 0px 4px 20px 0px,
   rgba(75, 144, 223, 0.32) 0px 2px 16px 0px;
+`
+
+export const AnimatableContainer = styled(Container)`
   ${props => footerFloatingAnimation(props.isActive)};
 `
 
+export const RoundButton = styled.button`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${actionBtnConfig.btnColor};
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor:pointer;
+  color: ${styleTokens.whiteTextColor};
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

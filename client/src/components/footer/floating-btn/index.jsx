@@ -6,13 +6,22 @@ import { actionBtnConfig } from '../../../configs/footer';
 import useOutsideClick from '../../../hooks/useOutsideClick';
 
 import {
+  SaveIcon
+} from '../../../styles/icon';
+
+import {
   Wrapper,
-  Container
+  Container,
+  AnimatableContainer,
+  RoundButton
 } from './style';
 
-const FloatingBtn = ({history}) => {
+const FloatingBtn = ({history, location}) => {
   const [isActive, toggleActive] = React.useState(null);
   const {ref, isOutside} = useOutsideClick();
+  const isFormLoaded =
+  location.pathname.includes('/add') ||
+  location.pathname.includes('/edit');
 
   const handleClick = () => {
     toggleActive(!isActive);
@@ -31,20 +40,40 @@ const FloatingBtn = ({history}) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isOutside]);
 
+  React.useEffect(() => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  if(isFormLoaded) {
+    toggleActive(null);
+  }
+  },[isFormLoaded]);
+
   return (
     <Wrapper>
-      <Container
-        isActive={isActive}
-        ref={ref}
-      >
-      <ActionBtn
-        config={actionBtnConfig}
-        isActive={isActive}
-        onClick={handleClick}
-        onMenuItemClick={onNavigation}
-      />
-      </Container>
-    </Wrapper>
+      {!isFormLoaded ?
+        (
+          <AnimatableContainer
+          isActive={isActive}
+          ref={ref}
+          >
+            <ActionBtn
+              config={actionBtnConfig}
+              isActive={isActive}
+              onClick={handleClick}
+              onMenuItemClick={onNavigation}
+            />
+          </AnimatableContainer>
+        ) : (
+          <Container
+          isActive={false}
+          ref={ref}
+          >
+            <RoundButton>
+              <SaveIcon />
+            </RoundButton>
+          </Container>
+        )
+      }
+      </Wrapper>
   )
 }
 
