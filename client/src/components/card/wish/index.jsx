@@ -11,20 +11,33 @@ import {
   TitleText
 } from './style';
 
-const WishCard = ({title, isCompleted, description}) => {
+const WishCard = ({
+  title,
+  isCompleted,
+  description,
+  isStatusVisible = true,
+  }) => {
   return (
     <Wrapper>
-      <IconWrapper
-        iconColor={
-          isCompleted ?
-          styleTokens.greenActiveColor :
-          styleTokens.defaultIconColor
-        }
+      {isStatusVisible &&
+        <IconWrapper
+          iconColor={
+            isCompleted ?
+            styleTokens.greenActiveColor :
+            styleTokens.defaultIconColor
+          }
+        >
+          {isCompleted ? <CheckedIcon /> : <UncheckedIcon />}
+        </IconWrapper>
+      }
+      <Container
+        isFullWidth={!isStatusVisible}
       >
-        {isCompleted ? <CheckedIcon /> : <UncheckedIcon />}
-      </IconWrapper>
-      <Container>
-        <TitleText>{title}</TitleText>
+        <TitleText
+          isFullWidth={!isStatusVisible}
+        >
+          {title}
+        </TitleText>
         {
           description && title ? <Divider /> : null
         }
@@ -32,6 +45,7 @@ const WishCard = ({title, isCompleted, description}) => {
           description ?
           (
             <DescriptionSection
+              isFullWidth={!isStatusVisible}
               reducePadding={!title}
             >
               {description}

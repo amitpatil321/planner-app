@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 
 import { routeConfig } from '../config'
-import { updateWishes } from '../../redux/actions/wishActions';
+import { fetchWishes } from '../../redux/actions/wishActions';
 import { getGroupedWishes } from '../../helper';
 import Footer from '../../components/footer';
 
@@ -17,7 +17,7 @@ const ProtectedRouter = () => {
   React.useEffect(() => {
     // mocking api call
     const groupedWishes = getGroupedWishes(wishlists);
-    dispatch(updateWishes(
+    dispatch(fetchWishes(
       {
         grouped: groupedWishes,
         all: wishlists,

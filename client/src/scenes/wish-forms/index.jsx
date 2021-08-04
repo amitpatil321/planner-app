@@ -1,5 +1,6 @@
 import React from 'react';
 import queryString from 'query-string';
+import { useSelector, useDispatch } from 'react-redux';
 
 import useFormReducer from './reducer/useFormReducer';
 import { getCategoryInfo} from '../../helper'
@@ -29,6 +30,8 @@ import{
 } from './style';
 
 const WishForm = (props) => {
+  const { isFormValidationInitiated } = useSelector(state => state.formsReducer);
+  const reduxDispatch = useDispatch();
   const { location: { search } } = props;
   const { type } = queryString.parse(search);
   const {formData, dispatch} = useFormReducer(type);
@@ -110,6 +113,13 @@ const WishForm = (props) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type]);
 
+  React.useEffect(() => {
+    if(isFormValidationInitiated) {
+      console.log('formData', formData);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[isFormValidationInitiated]);
+
   return(
     <>
       <FWrapper>
@@ -122,7 +132,7 @@ const WishForm = (props) => {
           ) : null
           }
           <FHeader
-            contentEditable={true}
+            contentEditable={!isFormValidationInitiated }
             name="title"
             html={formData.title}
             onInput={handleInputChange}
@@ -156,7 +166,7 @@ const WishForm = (props) => {
           </FRow>
         </FSecondSlot>
         <InfoForm
-          isEditMode={true}
+          isEditMode={!isFormValidationInitiated}
           formData={formData}
           openDetailWishForm={openDetailWishForm}
           updateFormData={dispatch}
@@ -187,7 +197,7 @@ const WishForm = (props) => {
               data={(formData.list||[])[detailWishForm.currentIdx]}
               onSave={saveDetailWish}
               closeForm={closeDetailWishForm}
-              isEditMode={detailWishForm.isEditMode}
+              isEditMode={detailWishForm.isEditMode && !isFormValidationInitiated}
             />
           </BottomSheet>
         ) : null

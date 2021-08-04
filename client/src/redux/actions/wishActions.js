@@ -1,8 +1,8 @@
-import { UPDATE_WISHES } from '../actionTypes'
+import { FETCH_WISHES } from "../actionTypes";
 
-export function updateWishes(wishes) {
+export function fetchWishes(wishes) {
   return {
-    type: UPDATE_WISHES,
+    type: FETCH_WISHES,
     payload: wishes
-  }
+  };
 }

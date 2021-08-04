@@ -1,9 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
 
 import ActionBtn from '../../buttons/action';
 import { actionBtnConfig } from '../../../configs/footer';
 import useOutsideClick from '../../../hooks/useOutsideClick';
+import { initiateFormValidation } from '../../../redux/actions/formsActions'
+import Spinner from '../../spinner';
 
 import {
   SaveIcon
@@ -17,6 +20,8 @@ import {
 } from './style';
 
 const FloatingBtn = ({history, location}) => {
+  const { isFormValidationInitiated } = useSelector(state => state.formsReducer);
+  const dispatch = useDispatch();
   const [isActive, toggleActive] = React.useState(null);
   const {ref, isOutside} = useOutsideClick();
   const isFormLoaded =
@@ -31,6 +36,12 @@ const FloatingBtn = ({history, location}) => {
     const { path } = itemDetails;
     history.push(path);
     handleClick();
+  }
+
+  const handleSaveClick = () => {
+    if(!isFormValidationInitiated) {
+      dispatch(initiateFormValidation(true))
+    }
   }
 
   React.useEffect(()=>{
@@ -67,8 +78,10 @@ const FloatingBtn = ({history, location}) => {
           isActive={false}
           ref={ref}
           >
-            <RoundButton>
-              <SaveIcon />
+            <RoundButton onClick={handleSaveClick}>
+              {!isFormValidationInitiated ?
+                <SaveIcon /> : <Spinner />
+              }
             </RoundButton>
           </Container>
         )

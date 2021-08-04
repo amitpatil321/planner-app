@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 
 import { styleTokens } from '../../../styles/variable';
 
@@ -36,6 +37,7 @@ const InfoForm = ({
     description,
     hasBucket,
   } = formData;
+  const { isFormValidationInitiated } = useSelector(state => state.formsReducer);
 
   const getTitleText = () => hasBucket? "Add your wishes" : "Add description for your wish";
 
@@ -88,18 +90,24 @@ const InfoForm = ({
               {list.map((data, idx)=>(
                 <div
                   key={idx}
-                  onClick={() => openDetailWishForm(idx)}
+                  onClick={() =>
+                    !isFormValidationInitiated ?
+                    openDetailWishForm(idx) : () => {}
+                  }
                 >
                   <WishCard
+                    isStatusVisible={false}
                     {...data}
                   />
                 </div>
               ))}
-              <Button
-                onClick={() => openDetailWishForm()}
-              >
-                Add More Wish
-              </Button>
+              { !isFormValidationInitiated &&
+                <Button
+                  onClick={() => openDetailWishForm()}
+                >
+                  Add More Wish
+                </Button>
+              }
             </>
           ): <DescriptionCard
               description={description}

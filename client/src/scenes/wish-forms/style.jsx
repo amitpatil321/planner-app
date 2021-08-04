@@ -17,7 +17,9 @@ export const FHeader = styled(Header)`
   width: inherit;
   height: inherit;
   z-index:1;
-  -webkit-user-modify: read-write-plaintext-only;
+  min-height: 50px;
+  ${props => props.contentEditable ?
+    '-webkit-user-modify: read-write-plaintext-only' : ''};
 `
 export const FRow = styled(Row)`
   position: relative;

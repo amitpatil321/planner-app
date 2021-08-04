@@ -19,21 +19,21 @@ export const Container = styled.div`
   padding: 14px;
   font-size: 14px;
   color: ${styleTokens.darkTextColor};
-  width: 90%;
+  width: ${props => props.isFullWidth ? '100%' : '90%'};
   border: 2px solid ${styleTokens.borderColor};
   border-radius: 12px;
   font-weight: 500;
 `
 
 export const TitleText = styled.div`
-  width: 90%;
+  width: ${props => props.isFullWidth ? '100%' : '95%'};
   font-size: 13px;
   ${ellipsis}
 `
 
 export const Divider = styled.div`
   height: 2px;
-  width: 95%;
+  width: ${props => props.isFullWidth ? '100%' : '95%'};
   background: ${styleTokens.borderColor};
   margin-top: 12px;
 `
@@ -45,7 +45,7 @@ export const DescriptionSection = styled.div`
   font-style: italic;
   font-weight: 400;
   text-align: left;
-  width: 95%;
+  width: inherit;
   min-height: 20px;
   max-height: 100px;
   opacity: 0.8;

@@ -1,8 +1,8 @@
-import { UPDATE_WISHES } from "../actionTypes";
+import { FETCH_WISHES } from "../actionTypes";
 
 const wishesReducer = (state = {}, action) => {
   switch (action.type) {
-    case UPDATE_WISHES:
+    case FETCH_WISHES:
       return { ...state, ...action.payload };
     default:
       return state;
