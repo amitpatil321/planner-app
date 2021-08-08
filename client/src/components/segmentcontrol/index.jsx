@@ -9,11 +9,11 @@ import {
   Slider,
 } from './style';
 
-const outerPadding = 24;
+const outerPadding = document.querySelector('#root').getBoundingClientRect().left + 24;
 const innerPadding = 4;
 
 const SegmentControl = ({onChange = () => {}, options, activeSegment}) => {
-  const wrapperWidth = 110 * options.length;
+  const wrapperWidth = 100;
   const optionWidth = 100 / options.length;
   const [ sliderState, moveSlider] = React.useState({
     prevPos: 0,

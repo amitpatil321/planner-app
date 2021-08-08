@@ -6,7 +6,9 @@ import {
   FavoriteIcon,
   FavoriteMarkedIcon,
   CheckListIcon,
-  IconWrapper
+  DescriptionIcon,
+  IconWrapper,
+  TagIcon
 } from '../../../styles/icon'
 import { styleTokens } from '../../../styles/variable';
 
@@ -14,6 +16,7 @@ import {
   Wrapper,
   Container,
   Header,
+  HeaderText,
   CompletionDetails,
   SubText,
   CategoryBox,
@@ -30,24 +33,33 @@ const ListCard = ({
     >
       <Container>
         <Header>
-          {data.name}
+          <HeaderText>{data.title}</HeaderText>
           <IconWrapper>
             {data.isFavorite ?
-            <FavoriteMarkedIcon /> : <FavoriteIcon />}
+            <FavoriteMarkedIcon style={{color: styleTokens.favoriteIconColor}}/> : <FavoriteIcon />}
           </IconWrapper>
         </Header>
         <Row>
           <CompletionDetails isCompleted={data.isCompleted}>
             <IconWrapper
-              iconColor={data.isCompleted ? '#ffff' : styleTokens.lightIconColor}
+              iconColor={data.isCompleted ? styleTokens.greenActiveColor : styleTokens.lightIconColor}
+              iconSize={14}
+              pr={data.hasBucket ? 4 : 0}
             >
-              <CheckListIcon />
+              {data.hasBucket ? <CheckListIcon /> : <DescriptionIcon />}
             </IconWrapper>
-            <SubText>
+            {data.hasBucket ?
+            (<SubText>
               {getDetailedListCount(data.list)}
-            </SubText>
+            </SubText>) : null}
           </CompletionDetails>
           <CategoryBox>
+            <IconWrapper
+              iconColor={styleTokens.tagColor}
+              iconSize={14}
+            >
+              <TagIcon />
+            </IconWrapper>
             {getCategoryInfo(data.genre).label}
           </CategoryBox>
           </Row>

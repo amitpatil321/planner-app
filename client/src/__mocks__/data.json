@@ -1,6 +1,6 @@
 [
   {
-    "name": "Travel Wishlist One",
+    "title": "Travel Wishlist One",
     "genre": "travel",
     "isCompleted": false,
     "isFavorite": false,
@@ -8,23 +8,45 @@
     "createdDate": "19 June  2021",
     "id": 1,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Travel To Germany",
+        "title": "Travel To Germany",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
         "isCompleted": false
       },
       {
-        "content": "Travel To France",
+        "title": "Travel To France",
         "isCompleted": false
       },
       {
-        "content": "Travel To Italy",
+        "title": "Travel To Italy",
+        "isCompleted": false
+      },
+      {
+        "title": "Travel To Italy",
+        "isCompleted": false
+      },
+      {
+        "title": "Travel To Italy",
+        "isCompleted": false
+      },
+      {
+        "title": "Travel To Italy",
+        "isCompleted": false
+      },
+      {
+        "title": "Travel To Italy",
+        "isCompleted": false
+      },
+      {
+        "title": "Travel To Italy",
         "isCompleted": false
       }
     ]
   },
   {
-    "name": "Travel Wishlist Two",
+    "title": "Travel Wishlist Two",
     "genre": "travel",
     "isCompleted": false,
     "isFavorite": false,
@@ -32,23 +54,24 @@
     "createdDate": "19 June  2021",
     "id": 2,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Travel To Germany",
+        "title": "Travel To Germany",
         "isCompleted": false
       },
       {
-        "content": "Travel To France",
+        "title": "Travel To France",
         "isCompleted": false
       },
       {
-        "content": "Travel To Italy",
+        "title": "Travel To Italy",
         "isCompleted": false
       }
     ]
   },
   {
-    "name": "Travel Wishlist Three",
+    "title": "Travel Wishlist Three",
     "genre": "travel",
     "isCompleted": false,
     "isFavorite": false,
@@ -56,24 +79,25 @@
     "createdDate": "19 June  2021",
     "id": 3,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Travel To Germany",
+        "title": "Travel To Germany",
         "isCompleted": false
       },
       {
-        "content": "Travel To France",
+        "title": "Travel To France",
         "isCompleted": false
       },
       {
-        "content": "Travel To Italy",
+        "title": "Travel To Italy",
         "isCompleted": false
       }
     ]
   },
 
   {
-    "name": "Travel Wishlist Four",
+    "title": "Travel Wishlist Four",
     "genre": "travel",
     "isCompleted": true,
     "isFavorite": false,
@@ -81,24 +105,26 @@
     "createdDate": "19 June  2021",
     "id": 4,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Travel To Germany",
+        "title": "Travel To Germany",
         "isCompleted": true
       },
       {
-        "content": "Travel To France",
+        "title": "Travel To France",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
         "isCompleted": true
       },
       {
-        "content": "Travel To Italy",
+        "title": "Travel To Italy",
         "isCompleted": true
       }
     ]
   },
 
   {
-    "name": "Book Wishlist",
+    "title": "Book Wishlist",
     "genre": "book",
     "isCompleted": false,
     "isFavorite": false,
@@ -106,20 +132,21 @@
     "createdDate": "19 June  2021",
     "id": 5,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Complete Feluda",
+        "title": "Complete Feluda",
         "isCompleted": false
       },
       {
-        "content": "Complete Harry Potter",
+        "title": "Complete Harry Potter",
         "isCompleted": false
       }
     ]
   },
 
   {
-    "name": "Idea Wishlist",
+    "title": "Idea Wishlist",
     "genre": "idea",
     "isCompleted": false,
     "isFavorite": true,
@@ -127,19 +154,21 @@
     "createdDate": "19 June  2021",
     "id": 6,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Create Smart Mirror",
+        "title": "Create Smart Mirror",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
         "isCompleted": false
       },
       {
-        "content": "Create Portfolio",
+        "title": "Create Portfolio",
         "isCompleted": true
       }
     ]
   },
   {
-    "name": "Idea Wishlist 2",
+    "title": "Idea Wishlist 2",
     "genre": "idea",
     "isCompleted": false,
     "isFavorite": true,
@@ -147,20 +176,22 @@
     "createdDate": "19 June  2021",
     "id": 7,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Create Login Dashboard",
+        "title": "Create Login Dashboard",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
         "isCompleted": false
       },
       {
-        "content": "Create Blog App",
+        "title": "Create Blog App",
         "isCompleted": true
       }
     ]
   },
 
   {
-    "name": "Food Wishlist",
+    "title": "Food Wishlist",
     "genre": "food",
     "isCompleted": true,
     "isFavorite": false,
@@ -168,19 +199,21 @@
     "createdDate": "19 June  2021",
     "id": 8,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Learn to cook Chicken",
+        "title": "Learn to cook Chicken",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
         "isCompleted": true
       },
       {
-        "content": "Learn to cook Egg",
+        "title": "Learn to cook Egg",
         "isCompleted": true
       }
     ]
   },
   {
-    "name": "Fashion Wishlist 2",
+    "title": "Fashion Wishlist 2",
     "genre": "fashion",
     "isCompleted": true,
     "isFavorite": false,
@@ -188,19 +221,21 @@
     "createdDate": "19 June  2021",
     "id": 9,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Buy clothes",
+        "title": "Buy clothes",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
         "isCompleted": true
       },
       {
-        "content": "Buy shoes",
+        "title": "Buy shoes",
         "isCompleted": true
       }
     ]
   },
   {
-    "name": "Movie Wishlist",
+    "title": "Movie Wishlist",
     "genre": "movies",
     "isCompleted": true,
     "isFavorite": false,
@@ -208,15 +243,53 @@
     "createdDate": "19 June  2021",
     "id": 10,
     "authorId": "Rahul",
+    "hasBucket": true,
     "list" : [
       {
-        "content": "Watch Pather Panchali",
+        "title": "Watch Pather Panchali",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
         "isCompleted": true
       },
       {
-        "content": "Watch apur sansar",
+        "title": "Watch apur sansar",
         "isCompleted": true
       }
     ]
+  },
+  {
+    "title": "General Wishlist Two",
+    "genre": "general",
+    "isCompleted": true,
+    "isFavorite": false,
+    "isArchived": false,
+    "createdDate": "19 June  2021",
+    "id": 11,
+    "authorId": "Rahul",
+    "hasBucket": false,
+    "description": "Watch Pather Panchali"
+  },
+  {
+    "title": "Game Wishlist",
+    "genre": "game",
+    "isCompleted": true,
+    "isFavorite": false,
+    "isArchived": false,
+    "createdDate": "19 June  2021",
+    "id": 12,
+    "authorId": "Rahul",
+    "hasBucket": false,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets"
+  },
+  {
+    "title": "Musics & Event Wishlist Two",
+    "genre": "musics",
+    "isCompleted": true,
+    "isFavorite": false,
+    "isArchived": false,
+    "createdDate": "19 June  2021",
+    "id": 13,
+    "authorId": "Rahul",
+    "hasBucket": false,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets"
   }
 ]

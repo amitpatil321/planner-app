@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
   background: ${styleTokens.backgroundColor};
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 10px;
+  cursor: pointer;
 `
 export const Container = styled.div`
   width: 100%;

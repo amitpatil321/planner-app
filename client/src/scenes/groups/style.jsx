@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const CarouselWrapper = styled.div`
   width: 100%;
-  height: 220px;
+  height: 200px;
   position: relative;
   & .swiper-container {
     width: 100%;
@@ -24,11 +24,12 @@ export const CarouselWrapper = styled.div`
 
 export const ListWrapper = styled.div`
   width: 100%;
-  margin-top: 48px;
-  height: calc(${innerHeight}px - 220px - 56px - 48px);
+  margin-top: 32px;
+  height: calc(${innerHeight}px - 200px - 56px - 32px);
+  position: relative;
 `
 
-export const EmptyListCard = styled.h1`
+export const EmptyListCard = styled.div`
   width: 100%;
   height: 112px;
 `

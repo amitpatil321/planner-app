@@ -9,15 +9,16 @@ export const Wrapper = styled.div`
 
 export const Header = styled.h1`
   margin-top: 15px;
-  font-size: 38px;
+  font-size: 32px;
   color: ${styleTokens.darkTextColor};
   padding-bottom: 12px;
 `
 
-export const FirstFold = styled.div`
+export const FirstSlot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 `
 
 export const Row = styled.div`
@@ -25,7 +26,7 @@ export const Row = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: inherit;
 `
 
 export const AuthorDetails = styled.div`
@@ -37,26 +38,8 @@ export const AuthorDetails = styled.div`
     padding-left: 4px;
   }
 `
-export const SecondFold = styled(FirstFold)`
+export const SecondSlot = styled(FirstSlot)`
   margin-top: 46px;
-`
-
-export const CategoryBox = styled.div`
-  position: relative;
-  font-size: 12px;
-  padding: 0px 12px 0 14px;
-  border-radius: 12px 4px 4px 12px;
-  color: ${styleTokens.darkTextColor};
-  border: 1px solid rgb(0 0 0 /15%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  font-weight: 400;
-  background-color: #e7f1ff59;
-`
-export const Group = styled.div`
-  display: flex;
 `
 
 export const ImageContainer = styled.div`
@@ -66,19 +49,38 @@ export const ImageContainer = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin-right: 14px;
+  margin-right: 10px;
+`
+
+export const CategoryBox = styled.div`
+  position: relative;
+  font-size: 12px;
+  padding: 4px 12px 4px 8px;
+  border-radius: 8px;
+  color: ${styleTokens.tagColor};
+  background: ${styleTokens.tagBackgroundColor};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 32px;
+  font-weight: 500;
+  & >span {
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+`
+
+export const ThirdSlot = styled(FirstSlot)`
+  width: unset;
+  margin-top: 12px;
 `
 
 export const DateTimeText = styled.div`
-  color: ${styleTokens.lightIconColor};
-  font-size: 16px;
-  padding: 6px 0 12px 0;
-  & > span {
-    color: ${styleTokens.darkTextColor};
-    padding-left: 4px;
-    font-size: 16px;
-    font-weight: 500;
-  }
+  color: ${styleTokens.lightTextColor};
+  font-size: 12px;
 `
 
 export const ListCount = styled.div`
@@ -88,9 +90,9 @@ export const ListCount = styled.div`
   align-items: center;
   ${props => props.isCompleted ?
   `
-  background-color: ${styleTokens.activeColor};
-  color: ${styleTokens.whiteTextColor};
+  color: ${styleTokens.greenActiveColor};
   padding: 4px 8px;
+  background: ${styleTokens.greenActiveBackground};
   ` : `
   padding: 8px 0;
   color: ${styleTokens.lightIconColor};
@@ -119,4 +121,6 @@ export const TitleText = styled.span`
   display: block;
 `
 
-export const ListContainer = styled.div``
+export const WishWrapper = styled.div`
+  margin-top: 28px;
+`

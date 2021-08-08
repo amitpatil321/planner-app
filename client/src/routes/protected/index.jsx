@@ -2,32 +2,44 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 
-import Groups from '../../pages/Groups';
-import Landing from '../../pages/Landing';
-import Wishlist from '../../pages/WishList';
+import { routeConfig } from '../config'
+import { fetchWishes } from '../../redux/actions/wishActions';
+import { getGroupedWishes } from '../../helper';
+import Footer from '../../components/footer';
 
-import { updateWishList } from '../../redux/actions/wishlistActions';
-import { getGroupedWishlist } from '../../helper';
-
+// mock data
 import wishlists from '../../__mocks__/data.json';
 
 const ProtectedRouter = () => {
-  const wishlist = useSelector(state => state.wishlist)
+  const wishes = useSelector(state => state.wishes)
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     // mocking api call
-    const groupedWishlist = getGroupedWishlist(wishlists);
-    dispatch(updateWishList(groupedWishlist));
+    const groupedWishes = getGroupedWishes(wishlists);
+    dispatch(fetchWishes(
+      {
+        grouped: groupedWishes,
+        all: wishlists,
+      }
+    ));
   }, [dispatch]);
 
-  if(Object.keys(wishlist).length) {
+  if(Object.keys(wishes).length) {
     return (
-      <Switch>
-        <Route exact path="/landing" component={Landing} />
-        <Route exact path="/group" component={Groups} />
-        <Route exact path="/wishlist" component={Wishlist} />
-      </Switch>
+      <>
+        <Switch>
+          {Object.keys(routeConfig.protectedRoutes).map((key, idx) => (
+            <Route
+              exact
+              path={routeConfig.protectedRoutes[key].path}
+              component={routeConfig.protectedRoutes[key].component}
+              key={idx}
+            />
+          ))}
+        </Switch>
+        <Footer />
+      </>
     );
   } else {
     // use loader here
