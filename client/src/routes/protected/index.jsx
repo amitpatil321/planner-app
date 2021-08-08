@@ -29,11 +29,11 @@ const ProtectedRouter = () => {
     return (
       <>
         <Switch>
-          {Object.keys(routeConfig.protected).map((key, idx) => (
+          {Object.keys(routeConfig.protectedRoutes).map((key, idx) => (
             <Route
               exact
-              path={routeConfig.protected[key].path}
-              component={routeConfig.protected[key].component}
+              path={routeConfig.protectedRoutes[key].path}
+              component={routeConfig.protectedRoutes[key].component}
               key={idx}
             />
           ))}

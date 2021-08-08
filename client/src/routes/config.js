@@ -6,7 +6,7 @@ import Search from '../pages/Search';
 import Settings from '../pages/Setting';
 
 export const routeConfig = {
-  protected: {
+  protectedRoutes: {
     landing: {
       path: '/landing',
       component: Landing,
@@ -36,5 +36,12 @@ export const routeConfig = {
       component: Settings,
     }
   },
-  exposed: {},
+  exposedRoutes: {},
+}
+
+export const isValidRoute = (pathName) => {
+  const {protectedRoutes, exposedRoutes} = routeConfig;
+  const allRoutes = {...protectedRoutes, ...exposedRoutes};
+  return Object.keys(allRoutes)
+    .find((key) => allRoutes[key].path === pathName) === undefined ? false : true;
 }

@@ -21,8 +21,7 @@ const Footer = ({history, location}) => {
     toggleActiveLink(currentActiveLink);
   }, [location]);
 
-  const handleClick = ({path, name}) => {
-    toggleActiveLink(name);
+  const handleClick = ({path}) => {
     history.push(path);
   }
 

@@ -1,15 +1,20 @@
 import React from 'react';
 import queryString from 'query-string';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+
+import { initiateFormValidation } from '../../redux/actions/formsActions';
 
 import useFormReducer from './reducer/useFormReducer';
 import { getCategoryInfo} from '../../helper'
 import { placeCaretAtEnd } from '../../utils';
+import { checkIfDirty } from './utils';
 
 import BottomSheet from '../../components/bottomsheet';
 import SearchCategory from '../../components/serachcategory';
 import InfoForm from './info-form';
 import DetailWishForm from '../../components/detail-wish';
+import RouteGuard from './components/route-guard';
 
 import {
   IconWrapper,
@@ -32,8 +37,8 @@ import{
 const WishForm = (props) => {
   const { isFormValidationInitiated } = useSelector(state => state.formsReducer);
   const reduxDispatch = useDispatch();
-  const { location: { search } } = props;
-  const { type } = queryString.parse(search);
+  const { location, history } = props;
+  const { type } = queryString.parse(location.search);
   const {formData, dispatch} = useFormReducer(type);
 
   const [showSearch, toggleSearch] = React.useState(false);
@@ -115,7 +120,14 @@ const WishForm = (props) => {
 
   React.useEffect(() => {
     if(isFormValidationInitiated) {
-      console.log('formData', formData);
+      if(checkIfDirty(formData)) {
+        //Validate form
+        console.log('formData', formData);
+      } else {
+        reduxDispatch(
+          initiateFormValidation(false)
+        );
+      }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isFormValidationInitiated]);
@@ -202,6 +214,11 @@ const WishForm = (props) => {
           </BottomSheet>
         ) : null
       }
+      <RouteGuard
+        formData={formData}
+        isFormValidationInitiated={isFormValidationInitiated}
+        navigateToRoute={(path) => history.push(path)}
+      />
     </>
   )
 }
