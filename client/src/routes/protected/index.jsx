@@ -2,49 +2,51 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 
-import { routeConfig } from '../config'
-import { fetchWishes } from '../../redux/actions/wishActions';
-import { getGroupedWishes } from '../../helper';
-import Footer from '../../components/footer';
+import { routeConfig } from '../config';
+import { fetchPlans } from '../../redux/actions/planActions';
+import { getGroupedPlans } from '../../services';
 
 // mock data
-import wishlists from '../../__mocks__/data.json';
+import mockPlans from '../../__mocks__/data.json';
 
 const ProtectedRouter = () => {
-  const wishes = useSelector(state => state.wishes)
+  const plans = useSelector(state => state.plans)
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     // mocking api call
-    const groupedWishes = getGroupedWishes(wishlists);
-    dispatch(fetchWishes(
+    const groupedPlans = getGroupedPlans(mockPlans);
+    console.log(groupedPlans);
+    dispatch(fetchPlans(
       {
-        grouped: groupedWishes,
-        all: wishlists,
+        grouped: groupedPlans,
+        all: plans,
       }
     ));
   }, [dispatch]);
 
-  if(Object.keys(wishes).length) {
-    return (
-      <>
-        <Switch>
-          {Object.keys(routeConfig.protectedRoutes).map((key, idx) => (
-            <Route
-              exact
-              path={routeConfig.protectedRoutes[key].path}
-              component={routeConfig.protectedRoutes[key].component}
-              key={idx}
-            />
-          ))}
-        </Switch>
-        <Footer />
-      </>
-    );
-  } else {
-    // use loader here
-    return null
-  }
-}
+  return (
+    <>
+      {
+        Object.keys(plans)?.length ? (
+          <Switch>
+            {Object.keys(routeConfig.protectedRoutes).map((key, idx) => (
+              <Route
+                exact
+                path={routeConfig.protectedRoutes[key].path}
+                component={routeConfig.protectedRoutes[key].component}
+                key={idx}
+              />
+            ))}
+          </Switch>
+        ) : (
+          <>
+            loading
+          </>
+        )
+      }
+    </>
+  );
+};
 
 export default ProtectedRouter;

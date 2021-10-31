@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import wishesReducer from "./wishesReducer";
+import plansReducer from "./plansReducer";
 import formsReducer from "./formsReducer";
 
 export default combineReducers({
-  wishes: wishesReducer,
+  plans: plansReducer,
   formsReducer: formsReducer,
 });

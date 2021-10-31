@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { wishGenres } from '../../configs/wish';
+import { planCategories } from '../../configs/plan';
 import {
   IconWrapper,
   SearchIcon
@@ -35,7 +35,7 @@ const SearchCategory = ({onSelect}) => {
       </SearchBar>
       <Container>
         {
-          wishGenres
+          planCategories
           .filter((genre) =>
           genre.label.toLowerCase().includes(state.toLowerCase())
           )

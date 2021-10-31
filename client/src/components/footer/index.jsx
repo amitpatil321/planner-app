@@ -37,7 +37,7 @@ const Footer = ({history, location}) => {
         pr={0}
         iconColor={
           name === activeLink ?
-          styleTokens.linkTextColor : styleTokens.lightIconColor
+          styleTokens.linkColor : styleTokens.lightDarkColor
         }
       >
         <Icon />

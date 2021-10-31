@@ -5,7 +5,7 @@ import { isValidRoute } from '../../../../routes/config';
 import { checkIfDirty } from '../../utils';
 
 import Modal from '../modal';
-import Button from '../../../../components/buttons/generic';
+import Button from '../../../../components/lib/buttons/generic';
 
 import {
   Container,

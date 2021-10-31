@@ -6,11 +6,11 @@ import { toast } from 'react-toastify';
 import { initiateFormValidation } from '../../redux/actions/formsActions';
 
 import useFormReducer from './reducer/useFormReducer';
-import { getCategoryInfo} from '../../helper'
+import { getCategoryInfo} from '../../services'
 import { placeCaretAtEnd } from '../../utils';
 import { checkIfDirty } from './utils';
 
-import BottomSheet from '../../components/bottomsheet';
+import BottomSheet from '../../components/lib/bottomsheet';
 import SearchCategory from '../../components/serachcategory';
 import InfoForm from './info-form';
 import DetailWishForm from '../../components/detail-wish';

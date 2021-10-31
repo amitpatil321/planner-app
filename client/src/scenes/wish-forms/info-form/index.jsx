@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { styleTokens } from '../../../styles/variable';
 
-import Button from '../../../components/buttons/generic';
-import WishCard from '../../../components/card/wish';
-import DescriptionCard from '../../../components/card/description';
+import Button from '../../../components/lib/buttons/generic';
+import WishCard from '../../../components/lib/card/wish';
+import DescriptionCard from '../../../components/lib/card/description';
 
 import {
   IconWrapper,
@@ -39,7 +39,7 @@ const InfoForm = ({
   } = formData;
   const { isFormValidationInitiated } = useSelector(state => state.formsReducer);
 
-  const getTitleText = () => hasBucket? "Add your wishes" : "Add description for your wish";
+  const getTitleText = () => hasBucket? "Add your plans" : "Add description for your wish";
 
   const getFListCount = () => (
     <>
@@ -48,7 +48,7 @@ const InfoForm = ({
       (
         <FListCount isCompleted={false}>
           <IconWrapper
-            iconColor={styleTokens.lightIconColor}
+            iconColor={styleTokens.lightDarkColor}
             iconSize={16}
           >
             <CheckListIcon />
@@ -73,7 +73,7 @@ const InfoForm = ({
       <FSlot>
         <FRow>
           <IconWrapper
-            iconColor={ styleTokens.lightIconColor}
+            iconColor={ styleTokens.lightDarkColor}
             iconSize={14}
           >
             <DateIcon />

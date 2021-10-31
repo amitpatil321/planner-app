@@ -20,7 +20,7 @@ export const Container = styled.div`
   border-radius: 50%;
   top: 0;
   transform: translateY(-36%);
-  border: 0px solid ${styleTokens.backgroundColor};
+  border: 0px solid ${styleTokens.backgroundWhiteColor};
   z-index: 999;
   box-shadow:
   rgba(75, 144, 223, 0.3) 0px 4px 20px 0px,
@@ -44,7 +44,7 @@ export const RoundButton = styled.button`
   top: 50%;
   transform: translate(-50%, -50%);
   cursor:pointer;
-  color: ${styleTokens.whiteTextColor};
+  color: ${styleTokens.whiteColor};
   font-size: 12px;
   display: flex;
   justify-content: center;

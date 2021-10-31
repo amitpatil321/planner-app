@@ -3,71 +3,57 @@ import queryString from 'query-string';
 import { withRouter } from "react-router";
 import { useSelector } from 'react-redux'
 
-import SegmentControl from '../../components/segmentcontrol';
-import SmallCard from '../../components/card/small';
-import {
-  landingSegmentConfig,
-  defaultSegmentType
-} from '../../configs/segmentcontrol';
+import SearchPanel from './sections/search-panel';
+import CategorySlide from './sections/category-slide';
+import PlanGrid from './sections/plan-grid';
+
+import { defaultPlanConfig } from '../../configs/plan';
 
 import {
   Heading,
+  SubHeading,
   Wrapper,
   Container,
   Row,
-  CardContainer
 } from './style';
 
 const Landing = ({ username = 'Rahul', history, location }) => {
-  const wishes = useSelector(state => state.wishes.grouped);
-  const { segment } = queryString.parse(location.search);
+  const plans = useSelector(state => state.plans.grouped);
+  const { category } = queryString.parse(location.search);
+  const { allCategory } = defaultPlanConfig;
 
-  const [selectedSegment, toggleSegment] = React.useState(() => {
-    if(segment) {
-      return segment;
+  const [selectedCategory, toggleCategory] = React.useState(() => {
+    if(category) {
+      return category;
     }
-    return defaultSegmentType
+    return allCategory
   });
-  const selectedGroup = wishes[selectedSegment] || [];
-
-  const updateSegment = (option) => {
-    toggleSegment(option.type);
-    history.replace(`/landing?segment=${option.type}`)
-  }
-
-  const redirectToGroupRoute = (type) => {
-    const redirectPath = `/group?groupedBy=${selectedSegment}&type=${type}`
-    history.push(redirectPath);
-  }
 
   return (
     <Wrapper>
       <Heading>
-        Wishlist of <br /> {username}
+        Hi {username}, 👋🏻 <br />
+        Start tracking your Plans
       </Heading>
       <Container>
         <Row>
-          <SegmentControl
-            onChange={updateSegment}
-            options={landingSegmentConfig}
-            activeSegment={selectedSegment}
-          />
+          <SearchPanel />
         </Row>
         <Row>
-          <CardContainer>
-            {
-              selectedGroup.map((data, idx) => (
-                <SmallCard
-                  {...data}
-                  key={idx}
-                  clickHandle={redirectToGroupRoute}
-                />
-              ))
-            }
-          </CardContainer>
+          <SubHeading>
+            Categories
+          </SubHeading>
         </Row>
+        <CategorySlide
+          plans={plans}
+          selectedCategory={selectedCategory}
+          toggleCategory={toggleCategory}
+        />
+        <PlanGrid
+          plans={plans}
+          selectedCategory={selectedCategory}
+        />
       </Container>
-
     </Wrapper>
   )
 }

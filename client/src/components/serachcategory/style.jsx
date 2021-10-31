@@ -36,5 +36,5 @@ export const Image = styled.div`
 
 export const Detail = styled.div`
   font-size: 14px;
-  color: ${styleTokens.darkTextColor};
+  color: ${styleTokens.darkColor};
 `

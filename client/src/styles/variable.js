@@ -1,10 +1,9 @@
 export const styleTokens = {
-  backgroundColor: "#ffff",
-  darkTextColor: "#535B62",
-  lightTextColor: "#8ba2c7",
-  whiteTextColor: "#ffff",
+  backgroundWhiteColor: "#ffff",
+  darkColor: "#535B62",
+  lightDarkColor: "#9FA4AE",
+  whiteColor: "#ffff",
   borderColor: "#ecf1fd",
-  lightIconColor: "#8ba2c7",
   defaultIconColor: "#6b778c",
   tagColor: "#324cce",
   tagBackgroundColor: "#f6f6fa",
@@ -12,7 +11,8 @@ export const styleTokens = {
   greenActiveColor: "#6ecea0",
   greenActiveBackground: "#dbeeec",
   buttonColor: "#4476ff",
-  linkTextColor: "#4476ff",
+  linkColor: "#4476ff",
+  lightLinkBackground: '#E2EDF9',
   footerActionBtnColor: "#5484F7",
   placeholderColor: "#b3b3b1"
 };

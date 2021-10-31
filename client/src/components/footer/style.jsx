@@ -31,7 +31,7 @@ export const NavText = styled.div`
   font-size: 12px;
   padding-top: 2px;
   color: ${props => props.isActive?
-  styleTokens.linkTextColor : styleTokens.lightIconColor};
+  styleTokens.linkColor : styleTokens.lightDarkColor};
   position: relative;
 `
 
