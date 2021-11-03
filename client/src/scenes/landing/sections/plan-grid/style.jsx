@@ -6,6 +6,6 @@ export const Wrapper = styled.div`
 `
 export const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 100%;
 `

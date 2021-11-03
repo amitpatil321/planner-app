@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   width: 100%;
   border-radius: 32px;
   background: ${styleTokens.backgroundWhiteColor};
-  box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 6px,
-  rgba(0, 0, 0, 0.03) 0px -2px 6px;
+  box-shadow: #EFEEF0 0px 2px 6px;
+  border: 1px solid #EFEEF0;
   height: 48px;
   margin-bottom: 24px;
 `
@@ -15,8 +15,6 @@ export const Container = styled.div`
   height: 100%;
   border-radius: 8px;
   background: ${styleTokens.backgroundWhiteColor};
-  box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 6px,
-  rgba(0, 0, 0, 0.03) 0px -2px 6px;
 `
 
 export const SearchBar = styled.div`

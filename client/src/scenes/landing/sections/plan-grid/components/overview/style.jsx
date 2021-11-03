@@ -2,19 +2,16 @@ import styled from 'styled-components'
 import { styleTokens } from '../../../../../../styles/variable';
 
 export const Wrapper = styled.div`
-  width: 48%;
-  height: 164px;
-  border-radius: 12px;
+  width: 100%;
+  height: 140px;
+  border-radius: 8px;
   position: relative;
   border: 1px solid ${styleTokens.borderColor};
   margin-bottom: 12px;
-  &:nth-child(odd) {
-    margin-right: 12px;
-  }
   background: ${styleTokens.backgroundWhiteColor};
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 6px,
-  rgba(0, 0, 0, 0.03) 0px -2px 6px;
+  box-shadow: ${styleTokens.boxShadowColor} 0px 2px 6px;
+  border: 1px solid ${styleTokens.boxShadowColor};
   cursor: pointer;
 `
 export const Container = styled.div`
@@ -27,7 +24,7 @@ export const Container = styled.div`
   position: relative;
 `
 export const Header = styled.div`
-  width: 86%;
+  width: 100%;
 `
 export const Title = styled.p`
   font-size: 14px;

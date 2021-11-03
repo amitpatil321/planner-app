@@ -10,8 +10,8 @@ export const Wrapper = styled.div`
   position: relative;
   background: ${styleTokens.backgroundWhiteColor};
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 6px,
-  rgba(0, 0, 0, 0.03) 0px -2px 6px;
+  box-shadow: ${styleTokens.boxShadowColor} 0px 2px 6px;
+  border: 1px solid ${styleTokens.boxShadowColor};
   cursor: pointer;
   margin-right: 24px;
 `

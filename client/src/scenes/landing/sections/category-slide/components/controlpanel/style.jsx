@@ -14,7 +14,7 @@ export const TabContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0px 0 10px 0;
+  padding: 0px 0 14px 0;
 `
 export const Tab = styled.div`
   height: 18px;
@@ -82,5 +82,5 @@ export const ActionPanel = styled.div`
   width: 72%;
   justify-content: space-between;
   align-items: center;
-  padding-top: 8px;
+  padding-top: 12px;
 `

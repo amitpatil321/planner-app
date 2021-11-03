@@ -3,7 +3,7 @@ export const styleTokens = {
   darkColor: "#535B62",
   lightDarkColor: "#9FA4AE",
   whiteColor: "#ffff",
-  borderColor: "#ecf1fd",
+  borderColor: "#EFEEF0",
   defaultIconColor: "#6b778c",
   tagColor: "#324cce",
   tagBackgroundColor: "#f6f6fa",
@@ -14,5 +14,6 @@ export const styleTokens = {
   linkColor: "#4476ff",
   lightLinkBackground: '#E2EDF9',
   footerActionBtnColor: "#5484F7",
-  placeholderColor: "#b3b3b1"
+  placeholderColor: "#b3b3b1",
+  boxShadowColor: '#EFEEF0'
 };
