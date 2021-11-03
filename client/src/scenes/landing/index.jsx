@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 import SearchPanel from './sections/search-panel';
 import CategorySlide from './sections/category-slide';
-import PlanGrid from './sections/plan-grid';
+import PlanList from './sections/plan-list';
 
 import { defaultPlanConfig } from '../../configs/plan';
 
@@ -49,7 +49,7 @@ const Landing = ({ username = 'Rahul', history, location }) => {
           selectedCategory={selectedCategory}
           toggleCategory={toggleCategory}
         />
-        <PlanGrid
+        <PlanList
           plans={plans}
           selectedCategory={selectedCategory}
         />

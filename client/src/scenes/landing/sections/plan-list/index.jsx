@@ -7,7 +7,7 @@ import {
   Container,
 } from './style';
 
-const PlanGrid = ({ plans, selectedCategory }) => {
+const PlanList = ({ plans, selectedCategory }) => {
   return (
     <Wrapper>
       <Container>
@@ -26,4 +26,4 @@ const PlanGrid = ({ plans, selectedCategory }) => {
   )
 }
 
-export default PlanGrid;
+export default PlanList;
