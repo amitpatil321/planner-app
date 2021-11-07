@@ -2,10 +2,11 @@ import styled from 'styled-components'
 import { styleTokens } from '../../../../../../styles/variable';
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: calc(50% - 10px);
   height: 140px;
   border-radius: 8px;
   position: relative;
+  margin-right: 10px;
   border: 1px solid ${styleTokens.borderColor};
   margin-bottom: 12px;
   background: ${styleTokens.backgroundWhiteColor};
@@ -16,7 +17,8 @@ export const Wrapper = styled.div`
 `
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: inherit;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,18 +28,19 @@ export const Container = styled.div`
 export const Header = styled.div`
   width: 100%;
 `
-export const Title = styled.p`
+export const Title = styled.div`
   font-size: 14px;
   padding: 10px 0;
   font-weight: 400;
   color: ${styleTokens.darkColor};
-  font-weight: 500;
+  font-weight: bold;
 `
 export const SubTitle = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   color: ${styleTokens.lightDarkColor};
+  font-size: 12px;
 `
 export const CategoryBox = styled.div`
   width: 100%;

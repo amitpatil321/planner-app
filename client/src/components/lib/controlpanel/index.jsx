@@ -1,9 +1,9 @@
 import React from 'react';
 import { RiSearchLine } from 'react-icons/ri';
 
-import {defaultColors, emojiList, tabOptions} from '../../../../../../configs/category';
+import {defaultColors, emojiList, tabOptions} from '../../../configs/category';
 
-import Button from '../../../../../../components/lib/buttons/generic';
+import Button from '../buttons/generic';
 
 import {
   Container,

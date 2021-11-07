@@ -1,13 +1,12 @@
 import React from 'react';
-import queryString from 'query-string';
-import { withRouter } from "react-router";
+import { withRouter } from 'react-router';
 import { useSelector } from 'react-redux'
 
 import SearchPanel from './sections/search-panel';
 import CategorySlide from './sections/category-slide';
 import PlanList from './sections/plan-list';
 
-import { defaultPlanConfig } from '../../configs/plan';
+import { genericCategories } from '../../configs/category';
 
 import {
   Heading,
@@ -17,23 +16,17 @@ import {
   Row,
 } from './style';
 
-const Landing = ({ username = 'Rahul', history, location }) => {
-  const plans = useSelector(state => state.plans.grouped);
-  const { category } = queryString.parse(location.search);
-  const { allCategory } = defaultPlanConfig;
+const Landing = ({ username = 'Rahul' }) => {
+  const groupedPlans = useSelector(state => state.plans);
+  const allCategories = useSelector(state => state.categories);
 
-  const [selectedCategory, toggleCategory] = React.useState(() => {
-    if(category) {
-      return category;
-    }
-    return allCategory
-  });
+  const [selectedCategoryId, toggleSelectedCategoryId] = React.useState(genericCategories[0].id);
 
   return (
     <Wrapper>
       <Heading>
-        Hi {username}, 👋🏻 <br />
-        Start tracking your Plans
+        Hi, {username} 👋🏻 <br />
+        <span> Start tracking your Plans </span>
       </Heading>
       <Container>
         <Row>
@@ -45,14 +38,13 @@ const Landing = ({ username = 'Rahul', history, location }) => {
           </SubHeading>
         </Row>
         <CategorySlide
-          plans={plans}
-          selectedCategory={selectedCategory}
-          toggleCategory={toggleCategory}
+          allCategories={allCategories}
+          selectedCategoryId={selectedCategoryId}
+          toggleCategory={toggleSelectedCategoryId}
         />
-        <PlanList
-          plans={plans}
-          selectedCategory={selectedCategory}
-        />
+        {/* <PlanList
+          plans={groupedPlans[selectedCategoryId]}
+        /> */}
       </Container>
     </Wrapper>
   )

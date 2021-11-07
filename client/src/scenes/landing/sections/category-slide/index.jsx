@@ -1,34 +1,55 @@
 import React from 'react';
 
-import { defaultPlanConfig } from '../../../../configs/plan';
-
-import CategoryCard from './components/category-card';
+import { genericCategories } from '../../../../configs/category';
+import CategoryCard from './components/card';
 
 import {
-  Wrapper
+  Wrapper,
+  Container,
+  EmptyBox
 } from './style';
 
 const CategorySlide = ({
-  plans,
-  selectedCategory,
+  allCategories,
+  selectedCategoryId,
   toggleCategory = () => {},
 }) => {
-  const { defaultCategory } = defaultPlanConfig;
+  const filteredCategory = Object.keys(allCategories)
+  .filter(key => genericCategories.findIndex(c => c.id === key) === -1 );
+  filteredCategory.unshift('all');
+  const breakPoint = (filteredCategory.length / 2) + (filteredCategory.length % 2);
+
+
+  console.log(allCategories)
+  // .filter(key => genericCategories.findIndex(c => c.id === key) === 1 ));
+
   return (
+    <>
     <Wrapper>
       {
-        Object.keys(plans).map((key) => (
-          <CategoryCard
-            {...plans[key]}
+        filteredCategory
+        .slice(0, breakPoint)
+        .map((key, idx) => (
+          <Container
             key={key}
-          />
+          >
+            <CategoryCard
+              {...allCategories[key]}
+              clickHandle={toggleCategory}
+              isSelected={selectedCategoryId === key}
+              extraPadding
+            />
+            <CategoryCard
+              {...allCategories[filteredCategory[breakPoint + idx]]}
+              clickHandle={toggleCategory}
+              isSelected={selectedCategoryId === filteredCategory[breakPoint + idx]}
+            />
+          </Container>
         ))
       }
-      <CategoryCard
-        { ...defaultCategory }
-        isNewCategory
-      />
+      <EmptyBox />
     </Wrapper>
+    </>
   )
 }
 

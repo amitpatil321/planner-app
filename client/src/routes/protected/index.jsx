@@ -3,27 +3,29 @@ import { Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 
 import { routeConfig } from '../config';
-import { fetchPlans } from '../../redux/actions/planActions';
-import { getGroupedPlans } from '../../services';
-
-// mock data
-import mockPlans from '../../__mocks__/data.json';
+import { fetchAppData } from '../../services';
+import { SET_APP_DATA } from '../../redux/actionTypes'
 
 const ProtectedRouter = () => {
-  const plans = useSelector(state => state.plans)
+  const plans = useSelector(state => state.plans);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    // mocking api call
-    const groupedPlans = getGroupedPlans(mockPlans);
-    console.log(groupedPlans);
-    dispatch(fetchPlans(
+  const getApiData = async () => {
+    const { plans, categories } = await fetchAppData();
+    dispatch(
       {
-        grouped: groupedPlans,
-        all: plans,
+        type: SET_APP_DATA,
+        payload: {
+          plans,
+          categories
+        }
       }
-    ));
-  }, [dispatch]);
+    );
+  }
+
+  React.useEffect(() => {
+    getApiData();
+  }, []);
 
   return (
     <>

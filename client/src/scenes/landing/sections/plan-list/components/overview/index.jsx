@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { getProgressDetails } from '../../../../../../services';
+import ProgressIndicator from '../../../../../../components/lib/progress-indicator';
+
 import {
   Wrapper,
   Container,
@@ -13,20 +16,21 @@ import {
 
 const OverviewCard = ({
   title, categoryInfo,
-  list, id, authorId,
+  description,
+  list, id,
   clickHandle = () => {}}) => {
+  const {completeCount, totalCount} = getProgressDetails(list);
+
   return (
     <Wrapper
       onClick={(e) => clickHandle(id)}
     >
       <Container>
         <Header>
-          <SubTitle>
-            { authorId }
-          </SubTitle>
           <Title>
             {title}
           </Title>
+        </Header>
           <CategoryBox>
             {
               categoryInfo.emoji ? (
@@ -41,7 +45,16 @@ const OverviewCard = ({
               {categoryInfo.label}
             </SubTitle>
           </CategoryBox>
-        </Header>
+          <div>
+            <SubTitle>
+              Subtasks
+              <span> {completeCount}/{totalCount} </span>
+            </SubTitle>
+            <ProgressIndicator
+              color={categoryInfo.color}
+              sliderWidth={(completeCount/totalCount)*100}
+            />
+          </div>
       </Container>
     </Wrapper>
   )

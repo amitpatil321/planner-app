@@ -7,12 +7,13 @@ import {
   Container,
 } from './style';
 
-const PlanList = ({ plans, selectedCategory }) => {
+const PlanList = ({ plans, selectedCategoryId }) => {
+  console.log(plans);
   return (
     <Wrapper>
       <Container>
         {
-          (plans[selectedCategory.type] || {list: []})
+          (plans || { list: [] })
           .list.map((plan) => (
             <React.Fragment key={plan.id}>
               <OverviewCard

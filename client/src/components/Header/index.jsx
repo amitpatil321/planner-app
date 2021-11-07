@@ -1,12 +1,12 @@
 import React from 'react';
 import { HiMenuAlt1 } from 'react-icons/hi';
-import { RiAccountCircleLine } from 'react-icons/ri'
 
 import {
   Wrapper,
   AapNameContainer,
   ProfileShortcut,
   MenuIcon,
+  ProfileImage,
 } from './style';
 
 //TODO: Create ProfileShortcut component
@@ -21,7 +21,7 @@ const Header = () => {
         planner
       </AapNameContainer>
       <ProfileShortcut>
-        <RiAccountCircleLine />
+        <ProfileImage />
       </ProfileShortcut>
     </Wrapper>
   )

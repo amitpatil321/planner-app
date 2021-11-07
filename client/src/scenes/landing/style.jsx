@@ -15,16 +15,33 @@ export const Row = styled.div`
   width: 100%;
   padding: 0 24px;
 `
-export const Heading = styled.h1`
+export const Heading = styled.div`
   font-size: 24px;
   color: ${styleTokens.darkColor};
-  padding: 0 24px 42px 24px;
+  padding: 24px 24px 36px 24px;
+  font-weight: 900;
+  > span {
+    color: #848484;
+    font-weight: 600;
+  }
 ;
 `
 export const SubHeading = styled.h4`
   font-size: 16px;
   color: ${styleTokens.darkColor};
   padding: 12px 0px;
+  ::-webkit-input-placeholder {
+    color: #CACACA;
+  }
+  ::-moz-placeholder {
+    color: #CACACA;
+  }
+  :-ms-input-placeholder {
+    color: #CACACA;
+  }
+  :-moz-placeholder {
+    color: #CACACA;
+  }
 `
 export const HorizontalScrollBar = styled.div`
   display: flex;

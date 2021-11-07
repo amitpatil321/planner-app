@@ -1,0 +1,57 @@
+
+[
+  {
+    "label": "General",
+    "id": 1,
+    "colorId": "#0F2CE2",
+    "emojiId": 0
+  },
+  {
+    "label": "Books",
+    "id": 2,
+    "colorId": "#0F2CE2",
+    "emojiId": 3
+  },
+  {
+    "label": "Fashion",
+    "id": 3,
+    "colorId": "#0F2CE2",
+    "emojiId": 5
+  },
+  {
+    "label": "Food",
+    "id": 4,
+    "colorId": "#0F2CE2",
+    "emojiId": 9
+  },
+  {
+    "label": "Game",
+    "id": 5,
+    "colorId": "#0F2CE2",
+    "emojiId": 59
+  },
+  {
+    "label": "Idea",
+    "id": 6,
+    "colorId": "#0F2CE2",
+    "emojiId": 8
+  },
+  {
+    "label": "Movies",
+    "id": 7,
+    "colorId": "#0F2CE2",
+    "emojiId": 12
+  },
+  {
+    "label": "Musics",
+    "id": 8,
+    "colorId": "#0F2CE2",
+    "emojiId": 67
+  },
+  {
+    "label": "Travel",
+    "id": 9,
+    "colorId": "#0F2CE2",
+    "emojiId": 6
+  }
+]

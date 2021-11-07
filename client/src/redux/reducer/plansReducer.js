@@ -1,9 +1,9 @@
-import { FETCH_PLANS } from "../actionTypes";
+import { SET_APP_DATA } from "../actionTypes";
 
 const plansReducer = (state = {}, action) => {
   switch (action.type) {
-    case FETCH_PLANS:
-      return { ...state, ...action.payload };
+    case SET_APP_DATA:
+      return { ...state, ...action.payload.plans };
     default:
       return state;
   }
