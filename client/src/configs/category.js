@@ -4,7 +4,7 @@ export const genericCategories = [
   {
     label: "All",
     id: "all",
-    colorId: "#0F2CE2",
+    colorId: "#52a911",
     emojiId: null
   },
   {
@@ -56,7 +56,8 @@ export const colorList = [
   { id:'#4643FE', color:'#4643FE' },
   { id:'#4643FE', color:'#4643FE' },
   { id:'#7C6F63', color:'#7C6F63' },
-  {id: '#0F2CE2', color: '#0F2CE2'}
+  {id: '#0F2CE2', color: '#0F2CE2'},
+  {id: '#52a911', color: '#52a911'}
 ];
 
 export const emojiList = emojis.map((data, index) => ({

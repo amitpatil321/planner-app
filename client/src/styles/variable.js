@@ -15,5 +15,7 @@ export const styleTokens = {
   lightLinkBackground: '#E2EDF9',
   footerActionBtnColor: "#5484F7",
   placeholderColor: "#b3b3b1",
-  boxShadowColor: '#EFEEF0'
+  boxShadowColor: '#EFEEF0',
+  greenColor: '#52a911',
+  lightGreen: '#ebf3ebb8',
 };

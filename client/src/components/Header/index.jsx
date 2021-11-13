@@ -1,12 +1,13 @@
 import React from 'react';
 import { HiMenuAlt1 } from 'react-icons/hi';
 
+import ProfileImage from '../lib/profile-image';
+
 import {
   Wrapper,
   AapNameContainer,
   ProfileShortcut,
   MenuIcon,
-  ProfileImage,
 } from './style';
 
 //TODO: Create ProfileShortcut component

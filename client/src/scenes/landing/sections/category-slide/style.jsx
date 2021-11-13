@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: flex-start;
   overflow-x: auto;
-  padding: 12px 0 12px 24px;
+  padding: 12px 0 24px 24px;
 `
 export const Container = styled.div`
   display: flex;

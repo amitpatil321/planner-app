@@ -21,8 +21,8 @@ const CategoryCard = ({
   return (
     <Wrapper
       onClick={(e) => clickHandle(id)}
-      isSelected
-      extraPadding
+      isSelected={isSelected}
+      extraPadding={extraPadding}
     >
       <Container>
         {

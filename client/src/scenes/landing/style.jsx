@@ -22,12 +22,14 @@ export const Heading = styled.div`
   font-weight: 900;
   > span {
     color: #848484;
-    font-weight: 600;
+    font-weight: 500;
+    display: block;
+    padding-top: 8px;
   }
 ;
 `
 export const SubHeading = styled.h4`
-  font-size: 16px;
+  font-size: 20px;
   color: ${styleTokens.darkColor};
   padding: 12px 0px;
   ::-webkit-input-placeholder {

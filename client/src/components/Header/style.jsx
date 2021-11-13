@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(255,255,255, 0.6);
+  backdrop-filter: blur(9px); */
 `;
 export const AapNameContainer = styled.div`
   font-size: 20px;
@@ -26,15 +31,6 @@ export const ProfileShortcut = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`;
-export const ProfileImage = styled.img`
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-image: url(/assets/images/profile.jpeg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 

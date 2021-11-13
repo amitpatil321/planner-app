@@ -14,20 +14,16 @@ const CategorySlide = ({
   selectedCategoryId,
   toggleCategory = () => {},
 }) => {
-  const filteredCategory = Object.keys(allCategories)
+  const filteredCategoryKeys = Object.keys(allCategories)
   .filter(key => genericCategories.findIndex(c => c.id === key) === -1 );
-  filteredCategory.unshift('all');
-  const breakPoint = (filteredCategory.length / 2) + (filteredCategory.length % 2);
-
-
-  console.log(allCategories)
-  // .filter(key => genericCategories.findIndex(c => c.id === key) === 1 ));
+  filteredCategoryKeys.unshift('all');
+  const breakPoint = Math.floor((filteredCategoryKeys.length / 2)) + (filteredCategoryKeys.length % 2);
 
   return (
     <>
     <Wrapper>
       {
-        filteredCategory
+        filteredCategoryKeys
         .slice(0, breakPoint)
         .map((key, idx) => (
           <Container
@@ -36,13 +32,13 @@ const CategorySlide = ({
             <CategoryCard
               {...allCategories[key]}
               clickHandle={toggleCategory}
-              isSelected={selectedCategoryId === key}
+              isSelected={selectedCategoryId.toString() === key}
               extraPadding
             />
             <CategoryCard
-              {...allCategories[filteredCategory[breakPoint + idx]]}
+              {...allCategories[filteredCategoryKeys[breakPoint + idx]]}
               clickHandle={toggleCategory}
-              isSelected={selectedCategoryId === filteredCategory[breakPoint + idx]}
+              isSelected={selectedCategoryId.toString() === filteredCategoryKeys[breakPoint + idx]}
             />
           </Container>
         ))

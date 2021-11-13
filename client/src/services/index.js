@@ -17,34 +17,36 @@ async function getCombinedCategories() {
   return categoryObj;
 }
 
-export async function getGroupedPlans(categories) {
-  const groupedPlans = {};
-  genericCategories.forEach(category => {
-    groupedPlans[category.id] = {
-      ...category,
-      list: []
-    }
-  });
-  mockPlans.forEach((plan) => {
-    const planCategoryDetails = categories[plan.categoryId];
-    if(!groupedPlans[planCategoryDetails.id]) {
-      groupedPlans[planCategoryDetails.id] = {
-        ...planCategoryDetails,
-        list: []
-      };
-    }
-    groupedPlans[planCategoryDetails.id].list.push(plan);
-    groupedPlans['all'].list.push(plan);
-    if (plan.isCompleted) {
-      groupedPlans['completed'].list.push(plan);
-    } else {
-      groupedPlans['inprogress'].list.push(plan);
-    }
-    if (plan.isArchived) {
-      groupedPlans['archived'].list.push(plan);
-    }
-  });
-  return groupedPlans;
+async function getPlans() {
+  return mockPlans;
+}
+
+export function getFilteredPlans(
+  plans,
+  selectedCategoryId,
+  selectedTabId,
+  searchQuery
+) {
+  let ret = [];
+  if (selectedCategoryId === genericCategories[0].id) {
+    ret = [...plans];
+  } else if (selectedCategoryId === genericCategories[1].id) {
+    ret = plans.filter(data => data.isArchived);
+  } else {
+    ret = plans.filter(data => data.categoryId === selectedCategoryId);
+  }
+
+  if (selectedTabId === genericCategories[2].id)
+    ret = ret.filter(data => data.isImportant);
+  if (selectedTabId === genericCategories[3].id)
+    ret = ret.filter(data => data.isCompleted);
+  if (selectedTabId === genericCategories[4].id)
+    ret = ret.filter(data => !data.isCompleted);
+
+  return ret
+  .filter(data =>
+    data.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 }
 
 export function getProgressDetails(plans = []) {
@@ -61,9 +63,13 @@ export function getProgressDetails(plans = []) {
 export async function fetchAppData() {
   // mock api call
   const combinedCategories = await getCombinedCategories();
-  const groupedPlans = await getGroupedPlans(combinedCategories);
+  const plans = await getPlans();
   return {
     categories: combinedCategories,
-    plans: groupedPlans,
+    plans: plans,
   }
+}
+
+export function getPlansCategoryDetails() {
+
 }

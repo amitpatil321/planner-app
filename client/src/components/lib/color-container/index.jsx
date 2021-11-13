@@ -8,7 +8,6 @@ const ColorIndicator = styled.div`
   border-radius: 3px;
   background: ${props => props.pColor};
   box-shadow: ${props => chroma(props.pColor).alpha(0.4)} 0px 3px 8px;
-  margin-top: 2px;
 `
 
 export default ColorIndicator;

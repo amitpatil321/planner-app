@@ -10,7 +10,6 @@ const EmojiContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   text-shadow: ${styleTokens.lightDarkColor} 0px 2px 4px;
-  margin-top: 2px;
 `
 
 export default EmojiContainer;

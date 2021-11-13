@@ -8,8 +8,7 @@ import {
   SearchInput,
 } from './style';
 
-const SearchCategory = ({ onSelect }) => {
-  const [state, setState] = React.useState('');
+const SearchCategory = ({ searchQuery, setSearchQuery }) => {
   return (
     <Wrapper>
       <SearchBar>
@@ -18,8 +17,8 @@ const SearchCategory = ({ onSelect }) => {
         </SearchIconWrapper>
         <SearchInput
           type='text'
-          value={state}
-          onChange={(e)=> setState(e.target.value)}
+          value={searchQuery}
+          onChange={(e)=> setSearchQuery(e.target.value)}
           placeholder='Search plans...'
         />
       </SearchBar>

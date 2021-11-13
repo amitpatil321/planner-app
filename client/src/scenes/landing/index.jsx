@@ -1,12 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+
+import { genericCategories } from '../../configs/category';
+import { getFilteredPlans } from '../../services';
 
 import SearchPanel from './sections/search-panel';
 import CategorySlide from './sections/category-slide';
 import PlanList from './sections/plan-list';
-
-import { genericCategories } from '../../configs/category';
+import RouteTab from './sections/plan-list/components/route-tabs';
 
 import {
   Heading,
@@ -17,10 +19,26 @@ import {
 } from './style';
 
 const Landing = ({ username = 'Rahul' }) => {
-  const groupedPlans = useSelector(state => state.plans);
+  const plans = useSelector(state => state.plans);
   const allCategories = useSelector(state => state.categories);
+  const tabOptions = genericCategories.slice(2);
 
-  const [selectedCategoryId, toggleSelectedCategoryId] = React.useState(genericCategories[0].id);
+  const [
+    selectedCategoryId,
+    toggleCategoryId
+  ] = React.useState(genericCategories[0].id);
+  const [
+    selectedTabId,
+    updateSelectedTab
+  ] = React.useState(tabOptions[0].id);
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const filterPlans = getFilteredPlans(
+    plans,
+    selectedCategoryId,
+    selectedTabId,
+    searchQuery
+  );
 
   return (
     <Wrapper>
@@ -30,7 +48,10 @@ const Landing = ({ username = 'Rahul' }) => {
       </Heading>
       <Container>
         <Row>
-          <SearchPanel />
+          <SearchPanel
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
         </Row>
         <Row>
           <SubHeading>
@@ -40,11 +61,24 @@ const Landing = ({ username = 'Rahul' }) => {
         <CategorySlide
           allCategories={allCategories}
           selectedCategoryId={selectedCategoryId}
-          toggleCategory={toggleSelectedCategoryId}
+          toggleCategory={toggleCategoryId}
         />
-        {/* <PlanList
-          plans={groupedPlans[selectedCategoryId]}
-        /> */}
+        <Row>
+          <SubHeading>
+            My Tasks
+          </SubHeading>
+        </Row>
+        <RouteTab
+          tabs={tabOptions}
+          selectedTabId={selectedTabId}
+          handleClick = {(tabId) => {
+            updateSelectedTab(tabId)
+          }}
+          optionCount={(filterPlans||[]).length}
+        />
+        <PlanList
+          plans={filterPlans}
+        />
       </Container>
     </Wrapper>
   )
